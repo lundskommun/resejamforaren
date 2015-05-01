@@ -1,0 +1,65 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    
+}
+
+
+table.infoTable
+{
+	font-family:Verdana;
+    font-size:11px;
+	line-height:1.5;
+	margin-right: 20px;
+}
+
+table.infoTable2
+{
+	font-family:Verdana;
+    font-size:11px;
+	margin-left: 120px;
+}
+
+div.tillbakaDiv
+{
+	text-align: right;
+	margin-right:20px;
+	font-family:Verdana;
+    font-size:11px;
+	width:450px;
+}
+
+td.tillbakaTD
+{
+	text-align: right;
+}
+
+td.infoTD
+{
+
+}
+
+td.infoTD2
+{
+	padding-left:70px;
+}
+
+td.infoTD3
+{
+	padding-left:30px;
+	padding-right:30px;
+}
+
+td.infoTD4
+{
+	padding-left:30px;
+}
+
+
+
+
+
+
+

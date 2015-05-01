@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+<title>Resejämföraren</title>
+
+<!-- 
+Copyright (C) 2013 City of Lund (Lunds kommun)
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+ -->
+
+
+<!-- ------------------------------ CSS ---------------------------------------------- -->
+
+<!-- LIBS CSS -->
+<link rel="stylesheet" href="lib/bootstrap-3.0.2/css/bootstrap.css" />
+<link rel="stylesheet" href="lib/bootstrap-3.0.2/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+<![endif]-->
+
+<!-- OUR CODE CSS -->
+<link rel="stylesheet" href="core/css/style.css" />
+
+
+<!-- ------------------------------ JS ---------------------------------------------- -->
+<!-- LIBS JS -->
+<script src="lib/Respond-1.4.2/dest/respond.min.js"></script>
+<script src="lib/es5-shim-2.3.0/es5-shim.min.js"></script>
+<script src="lib/es5-shim-2.3.0/es5-sham.min.js"></script>
+
+<script src="lib/proj4js-2.1.2/dist/proj4.js"></script>
+<!--  script src="http://fgnass.github.io/spin.js/dist/spin.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="lib/bootstrap-3.0.2/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.0.2/typeahead/typeahead.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+<script
+	src="lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="lib/spin.min.js"></script>
+<script src="lib/x2js-v1.1.3/xml2json.min.js"></script>
+
+<!-- OUR CODE JS -->
+<script src="core/js/app.js"></script>
+<!-- app's namespace -->
+
+<script src="core/js/utils.js"></script>
+<script src="core/js/Map.js"></script>
+<script src="core/js/Search.js"></script>
+<script src="core/js/SearchTrip.js"></script>
+<script src="core/js/GeoCoder.js"></script>
+<script src="core/js/init.js"></script>
+
+<!-- Plugins (for path calculation) -->
+<script src="plugins/Plugin.js"></script>
+<!-- The base class for plugins -->
+<script src="plugins/Plugin_walk.js"></script>
+<script src="plugins/Plugin_bike.js"></script>
+<script src="plugins/Plugin_drive.js"></script>
+<script src="plugins/Plugin_mqWalk.js"></script>
+<script src="plugins/Plugin_mqBike.js"></script>
+<script src="plugins/Plugin_mqDrive.js"></script>
+
+<script src="plugins/Plugin_skanetrafiken.js"></script>
+<script src="plugins/Plugin_skanetrafiken_lund.js"></script>
+<script src="plugins/Plugin_resrobot.js"></script>
+
+
+<!--  script src="core/js/shared.js"></script>
+<script src="core/js/results.js"></script>
+<script src="core/js/search.js"></script>
+<script src="core/js/complete.js"></script>
+<script src="core/js/map.js"></script>
+<script src="core/js/analytics.js"></script>
+<script src="core/js/init.js"></script>-->
+
+
+</head>
+<body>
+	<div class="container rj-page">
+		<div class="row row-header">
+			<div class="col-md-12 rj-header">
+				<img src="img/lund/logo_lund.png" class="lund-logo"></img> <img
+					src="img/rj/huvud_rese_ny.png" class="rj-logo"></img>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 rj-sidebar">
+				<h4>Vad betyder dina resvanor i längden?</h4>
+				<p>Här kan du ta reda på vilka effekter dina resvanor har på
+					plånboken, hälsan och klimatet. Tjänsten täcker hela Skåne- och
+					Köpenhamnsregionen.</p>
+				<h4>Så här gör du</h4>
+				<p>Sök adresserna via sökfälten eller dra nålarna direkt till
+					kartan.</p>
+				<form class="rj-form">
+					<table class="col-xs-12">
+						<tr>
+							<td><input id="beginAddress" type="text"
+								style="float: left;" placeholder="Från adress"
+								class="form-control rj-input-field"></input>
+							</td>
+							<td id="pinbegin-td" style="padding-left: 15px;"></img>
+							</td>
+						</tr>
+						<tr>
+							<td><input id="endAddress" type="text"
+								placeholder="Till adress" class="form-control rj-input-field"></input>
+							</td>
+							<td id="pinend-td" style="padding-left: 15px;"></td>
+						</tr>
+						<tr style="text-align:right;">
+							<td>
+								<button id="searchButton" type="button"
+									data-loading-text="Beräknar..."
+									class="btn btn-small btn-default">Jämför</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<h4>Resultat av din jämförelse</h4>
+				<div class="result-box table-responsive">
+					<table id="results-table" ng-controller="ResultsCtrl"
+						class="table ng-scope">
+						<tr>
+							<th></th>
+							<th><a href="#modal-info-walk" role="button"
+								data-toggle="modal"> <img src="img/plugin_walk.png">
+							</a></th>
+							<th><a href="#modal-info-bike" role="button"
+								data-toggle="modal"> <img src="img/plugin_bike.png"> </a>
+							</th>
+							<th><a href="#modal-info-drive" role="button"
+								data-toggle="modal"> <img src="img/plugin_drive.png">
+							</a></th>
+							<th><a href="#modal-info-skanetrafiken" role="button"
+								data-toggle="modal"> <img src="img/plugin_skanetrafiken.png">
+							</a></th>
+						</tr>
+						<tr>
+							<th>Tid</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>Längd</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>Pris per resa</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>Pris per år</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>CO<sub>2</sub> per resa</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>CO<sub>2</sub> per år</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>Energi</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>Choklad per år</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>Källa</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 rj-map hidden-xs">
+				<div id="map"></div>
+			</div>
+
+			<div id="modal-info-walk" tabindex="-1" role="dialog"
+				aria-labelledby="modal-info-walk-label" aria-hidden="true"
+				class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-walk-label">Gång</h4>
+						</div>
+						<div class="modal-body">
+							<p>
+								Hastigheten är beräknad till 5 kilometer i timmen och
+								kaloriförbrukningen till 350 kcal/h (<a
+									href="http://www.apoteket.se">Apotekets</a> snitt mellan rask
+								och lugn promenad).
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">Stäng</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="modal-info-bike" tabindex="-1" role="dialog"
+				aria-labelledby="modal-info-bike-label" aria-hidden="true"
+				class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-bike-label">Cykla</h4>
+						</div>
+						<div class="modal-body">
+							<p>Hastigheten är beräknad utifrån en normalhastighet på 18
+								kilometer i timmen. Energiförbränning är beräknad utifrån en
+								kaloriåtgång på 600 kcal/h vid cykling i hastigheten 18
+								kilometer i timmen.</p>
+							<p>Tidsangivelserna för cykel tar inte hänsyn till de
+								topologiska förhållandena (höjdskillnader) på sträckan utan
+								utgår från planmark.</p>
+							<p>Kostnaden för att cykla är beräknad utifrån ett inköpspris
+								på 7000 kr och att cykeln används i 10 år, 220 dagar om året.
+								Skåningen cyklar i genomsnitt 2,8 km enkel väg, vilket ger en
+								genomsnittlig tur och returresa på 5,6 km (Resvanor Syd 2007).
+								Underhållet för cykeln är satt till 500 kronor per år vid
+								cykling 220 dagar om året. Sammanlagt ger detta en kostnad för
+								cykling på (700+500)/(5,6*220)= 0,97 kr/mil.</p>
+							<p>Resejämförarens anvisning av sträcka är baserade på
+								närmsta vägen från punkt A till punkt B för gång och cykel men
+								snabbaste vägen för bilen. För gång- och cykelvägen innebär
+								detta att den trafiksäkraste vägen inte alltid anges.</p>
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">Stäng</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="modal-info-drive" tabindex="-1" role="dialog"
+				aria-labelledby="modal-info-drive-label" aria-hidden="true"
+				class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-drive-label">Köra bil</h4>
+						</div>
+						<div class="modal-body">
+							<p>
+								Beräkningen av milkostnad bygger på <a
+									href="http://www.konsumentverket.se/Vara-omraden/Bilar-och-fordon/Rakna-ut-kostnader/">Konsumentverkets
+									bilkalkyl</a>.
+							</p>
+							<ul>
+								<li>Försäkringspremierna hämtades från Länsförsäkringar i
+									mars 2011. Beräkningen är baserad på en Volvo V 70 2.0
+									(Sveriges vanligaste bilmodell) årsmodell 2008 där ägaren är en
+									40-årig man, boendes i tätorten Lund med full bonus.
+									Försäkringskostnaden är beräknad till 4370 kr för en
+									grundförsäkring utan rabatter men inklusive vagnskadegaranti.
+									Självrisken är satt till lägsta nivå.</li>
+								<li>Bilens innehavstid, vilket är tiden man planerar att
+									behålla bilen, är satt till fem år.</li>
+								<li>De fasta kostnaderna är utslagna på 1 500 mil/år (den
+									årliga körsträckan är satt till 1 500 mil).</li>
+								<li>Punkterna Parkering och övrigt i bilkalkylen har satts
+									till 0 kronor.</li>
+								<li>När beräkningarna gjordes i april 2012 var bensinpriset
+									15,90 kronor liter</li>
+								<li>Milkostnaden för Volvo V70 blir enligt Konsumentverkets
+									bilkalkylen 40 kr/mil</li>
+							</ul>
+							<p>Koldioxidberäkningarna utgår från Konsumentverkets
+								Nybilsguide. Enligt detta beräkningsunderlag släpper en Vovlo
+								V70 2.0 ut 206 g/km.</p>
+							<p>Begreppet kallstart är ett uttryck för en bil som startas
+								med kall förbränningsmotor (dvs förbränningsrum och
+								insugningsrör har svalnat sedan det senast var i bruk). En
+								kallstart innebär försämrade förbränningsförhållanden jämfört
+								med en varm motor, vilket leder till en drygt 40 procentig
+								ökning av bränsleförbrukning den första kilometern och därmed
+								också ett ökat koldioxidutsläpp.</p>
+							<p>För att kompensera för försämrad förbränningsförhållanden
+								har en schablon för koldioxidutsläpp på 41 gram CO 2 lagts på
+								koldioxidutsläpp vid varje påbörjad resa i Resejämföraren
+								(Trafikverkets Effektsamband 2010).</p>
+							<p>Tidsåtgången för bilresor är beräknade på tider utanför
+								rusningstrafik. En tidsåtgång på 2.5 minuter för promenad från
+								parkering samt betalning av parkeringsavgift är pålagd såväl i
+								början av resan som vid slutdestination, dvs totalt 5 minuter.</p>
+							<p>För att kompensera för hastighetssänkningar till följd av
+								trafikljus, köbildning och övergångsställen inne i tätorternas
+								centrum under rusningstrafik har en tidsschablon lagts på
+								bilresor inom de största tätorterna. Denna kompensation sker
+								automatiskt för kollektivtrafiken.</p>
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">Stäng</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="modal-info-skanetrafiken" tabindex="-1" role="dialog"
+				aria-labelledby="modal-info-skanetrafiken-label" aria-hidden="true"
+				class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-skanetrafiken-label">Skånetrafiken</h4>
+						</div>
+						<div class="modal-body">
+							<p>Resejämförarens uppgifter för kollektivtrafik (sträckor,
+								linjer, kostnader och koldioxidberäkningar) bygger på data från
+								Skånetrafiken. Resvägen styrs av slutdestination, vilket innebär
+								att det är lämpligast väg som anges och inte närmsta hållplats
+								från startpunkt. Kollektivtrafikangivelserna gäller tåg/buss
+								samt gång till/från hållplats. För sträckor till och från
+								hållplats anges den genaste vägen. Gånghastigheten mellan
+								hållplats och slutpunkt är beräknad på 4 km per timme (ger ca 15
+								min per kilometer). Koldioxidberäkningarna anges i kg koldioxid
+								per personkilometer.</p>
+							<p>Priset för en enkelresa med kollektivtrafik är beräknad på
+								kostnaden av ett månadskort fördelad på 440 resor per år (220
+								arbetsdagar).</p>
+							<p>Restider för kollektivtrafiken utgår från en resa som
+								startar kl 08:00 på en måndag. Det innebär att det kan finnas
+								mer fördelaktiga avgångar som lämnar aktuell hållplats innan kl
+								08:00.</p>
+							<p>För Köpenhamnsregionen anges endast information om
+								tågtrafiken. Detaljerad information om busstrafiken finns på
+								www.skanetrafiken.se.</p>
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">Stäng</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<!-- Modal for info -->
+			<div id="modal-info" tabindex="-1" role="dialog"
+				aria-labelledby="modal-info-label" aria-hidden="true"
+				class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Info</h4>
+						</div>
+						<div class="modal-body">
+							<iframe src="infoText/infoStart.html" style="min-height:31em;" width="100%" height="100%" frameborder="0" seamless="seamless" scrolling="yes" marginheight="0" marginwidth="0"></iframe>
+						</div>
+						<div class="modal-footer">
+							<button id="dialog-info-btnclose" data-dismiss="modal" aria-hidden="true" class="btn btn-default">Stäng</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 rj-links">
+				<a href="mailto:resejamforaren@lund.se"> <img
+					src="img/link_contact.png"></img> </a>
+				<a href="#modal-info" role="button" data-toggle="modal"><img src="img/link_information.png"></img></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 rj-partners">
+				<p>
+					Samarbetspartners: <img src="img/partner_skanetrafiken.png"></img>
+					<img src="img/partner_openrouteservice.png"></img> <img
+						src="img/partner_klimp.png"></img> <img
+						src="img/partner_lundamats.png"></img> <img
+						src="img/partner_eu.png"></img>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 rj-footer">
+				<p>Copyright © Lunds kommun 2009-2013</p>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

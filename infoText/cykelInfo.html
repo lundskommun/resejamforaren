@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Info</title>
+<link rel="Stylesheet" type="text/css" href="styleInfo.css" />
+<script type="text/javascript" src="http://kartor.lund.se/resejamforaren_100520/Scripts/lib/jquery/jquery-1.4.2.min.js"></script>
+<script type='text/javascript'>
+var hu = window.location.search.substring(1);
+var gy = hu.split("?");
+function tillbaka(){
+	if(gy=='info'){
+		history.go(-1);
+	}
+	else{
+		$(parent.document).find('#closedialog').trigger('click');
+	}
+}
+
+</script>
+</head>
+<body>
+<table class="infoTable">
+	<tr>
+		<td><img src='img/Cykel_ruta_info.png'/></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan=2 class="infoTD">Hastigheten &auml;r ber&auml;knad utifr&aring;n en
+		normalhastighet p&aring; 18 kilometer i timmen <br />
+		Energif&ouml;rbr&auml;nning &auml;r ber&auml;knad utifr&aring;n en kalori&aring;tg&aring;ng p&aring; 600 kcal/h
+		vid cykling i hastigheten 18 kilometer i timmen. <br /><br />
+		Tidsangivelserna f&ouml;r cykel tar inte h&auml;nsyn till de topologiska f&ouml;rh&aring;llandena (h&ouml;jdskillnader) p&aring; str&auml;ckan utan utg&aring;r fr&aring;n planmark<br /><br />
+		Kostnaden f&ouml;r att cykla &auml;r ber&auml;knad utifr&aring;n ett ink&ouml;pspris p&aring; 7000 kr och att cykeln anv&auml;nds i 10 &aring;r, 220 dagar om &aring;ret. Sk&aring;ningen cyklar i genomsnitt 2,8 km enkel v&auml;g, vilket ger en genomsnittlig tur och returresa p&aring; 5,6 km (Resvanor Syd 2007). Underh&aring;llet f&ouml;r cykeln &auml;r satt till 500 kronor per &aring;r vid cykling 220 dagar om &aring;ret. Sammanlagt ger detta en kostnad f&ouml;r cykling p&aring; (700+500)/(5,6*220)= 0,97 kr/mil. 
+		<br/><br/>
+		Resej&auml;mf&ouml;rarens anvisning av str&auml;cka &auml;r baserade p&aring; n&auml;rmsta v&auml;gen fr&aring;n punkt A till punkt B f&ouml;r g&aring;ng och cykel men snabbaste v&auml;gen f&ouml;r bilen. F&ouml;r g&aring;ng- och cykelv&auml;gen inneb&auml;r detta att den trafiks&auml;kraste v&auml;gen inte alltid anges.
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>&nbsp;</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan='3' class='tillbakaTD'><div id='tillbakaDivInne'><a href="#" onClick="javascript:tillbaka();">Tillbaka</a> </div></td>
+	</tr>
+
+<table>
+</body>	
+</html>
