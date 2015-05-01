@@ -46,3 +46,7 @@ def set_language(req):
     translation.activate(lang)
     req.session[translation.LANGUAGE_SESSION_KEY] = lang
     return redirect('index')
+
+
+def ping(req):
+    return render_to_response('rjweb/ping.txt')
