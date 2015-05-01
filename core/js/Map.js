@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 City of Lund (Lunds kommun)
+ * Copyright (C) 2013-2015 City of Lund (Lunds kommun)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,20 +21,8 @@ app.Map = L.Class.extend({
     initialize: function(options) {
         options = options || {};
         $.extend(true, this, options);
-//        this.defineProjs();
-        
-        // class constructor
     },
-    
-//    defineProjs: function() {
-//      Proj4.defs["EPSG:3021"] = "+proj=tmerc +lat_0=0 +lon_0=15.8062845294444 +k=1.00000561024+x_0=1500064.274 +y_0=-667.711 +ellps=GRS80 +units=m";
-////        Proj4.defs["EPSG:3021"] = "+proj=tmerc +lat_0=0 +lon_0=15.80827777777778 +k=1 +x_0=1500000 +y_0=0 +ellps=bessel +units=m +no_defs";
-////        Proj4.defs["EPSG:4326"] = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
-//      Proj4.defs["EPSG:3857"] = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs";
-//      Proj4.defs["EPSG:900913"] = Proj4.defs["EPSG:3857"];
-//      Proj4.defs["GOOGLE"] = Proj4.defs["EPSG:3857"];
-//    },
-    
+
     drawMap: function() {
         var mapOptions = {
                 zoom: 13,
@@ -43,7 +31,6 @@ app.Map = L.Class.extend({
                 layers: [],
                 attributionControl: false,
                 center: [
-//                       66, 18
                     55.7091,
                     13.20102
                 ]
@@ -61,11 +48,7 @@ app.Map = L.Class.extend({
         });
         attributionControl.addTo(this.map);
         osmLayer.addTo(this.map);
-//        this.map.locate({
-//            'setView': true,
-//            'maxZoom': 13
-//        });
-        
+
         return this.map;
     },
     
@@ -162,50 +145,6 @@ app.Map = L.Class.extend({
     
     mapLoading: function(show) {
         return false;
-//      show = show || false;
-//      
-//      var self = this;
-//      
-//      if (this.mapLoadingInProgress) {
-//          return false;
-//      }
-//      this.mapLoadingInProgress = true;
-//      
-//      var bg = $(".loading-bg");
-//      if (show) {
-//          if (!bg.length) {
-//              bg = $('<div class="loading-bg" />');
-//              $('#map').append(bg);           
-//          }
-//          if (!this.spinner) {
-//              this.spinner = new Spinner({
-//                  radius: 30,
-//                  length: 20,
-//                  width: 10
-//              });
-//              $(this.spinner.el).css("z-index", 2000);
-//          }
-//          setTimeout(function() {
-//              self.spinner.spin($('#map')[0]);
-//          }, 250);
-//          
-//          bg.show();
-//          setTimeout(function() {
-//              $(self.spinner.el).addClass("show");
-//              bg.addClass("show");
-//              self.mapLoadingInProgress = false;
-//          }, 10);
-//      }
-//      else {
-//          if (this.spinner) {
-//              this.spinner.stop();
-//              bg.removeClass("show");
-//              setTimeout(function() {
-//                  self.mapLoadingInProgress = false;
-//                  bg.hide();
-//              }, 500);                
-//          }
-//      }
     },
 
     fitContents: function() {

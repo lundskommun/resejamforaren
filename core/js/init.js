@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 $(document).ready(function() {
 	
@@ -13,11 +28,6 @@ $(document).ready(function() {
 	
 	app.mapInst = new app.Map();
 	
-//	var show = false;
-//	$("body").click(function() {
-//		show = !show;
-//		app.mapInst.mapLoading(show);
-//	});
 	var map = app.mapInst.drawMap();
 	
 	app.searchInst = new app.Search(map);
@@ -25,19 +35,5 @@ $(document).ready(function() {
 	app.geoCoderInst = new app.GeoCoder(map, {});
 	
 	app.searchTripInst = new app.SearchTrip(map);
-	
-//	var inst = new app.SearchTrip(map);
-//	inst.tableLoading("all", true);
-	
-//	55.71628170645908
-//	lng: 13.227195739746094
-	
-//	var start = L.latLng([55.71628, 13.22719]),
-//		end = L.latLng([55.70312, 13.22307]);
-//	
-//	var plugin = new app.plugins.plugin_skanetrafiken();
-//	plugin.calculate(start, end, function(data) {
-//		
-//	});
-	
+
 });

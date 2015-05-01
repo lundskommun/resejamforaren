@@ -1,17 +1,32 @@
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 app.GeoCoder = L.Class.extend({
 
 	options: {
-		apiKey: "Fmjtd|luu22l01n9,aa=o5-5ftw1",
+		apiKey: config.MapQuestKey,
 		bboxPriority: [12.60726, 55.30014, 14.68950, 56.52899],
 		bboxRestrict: [12.60726, 55.30014, 14.68950, 56.52899]  // All search results outside this bbox will be discarded
 	},
-	
+
 	searchFieldFrom: $("#beginAddress"),
 	searchFieldTo: $("#endAddress"),
 	
 	features: [],
 	
-
 	initialize: function(map, options) {
 		options = options || {};
 		
@@ -43,9 +58,8 @@ app.GeoCoder = L.Class.extend({
 		}
 		
 		
-		var url = "http://www.mapquestapi.com/geocoding/v1/address";
+		var url = "http://open.mapquestapi.com/geocoding/v1/address";
 		$.ajax({
-//			type: "GET",
 			url: url, //app.ws.proxy ? app.ws.proxy + encodeURIComponent(url) : url,
 			context: this,
 			data: {
@@ -65,7 +79,6 @@ app.GeoCoder = L.Class.extend({
 			success: function(resp) {
 				if (resp.info.statuscode > 0) {
 					console.log("An error occurred while locating the address");
-//					onFail();
 				}
 				var locations = resp.results[0].locations;
 				for (var i=0,len=locations.length; i<len; i++) {
@@ -85,50 +98,13 @@ app.GeoCoder = L.Class.extend({
 			}
 		});
 	},
-	
-//	getAddress: function(latLng, onFound, onFail, onComplete) {
-//		onFail = onFail || function() {};
-//		onComplete = onComplete || function() {};
-//		
-//		var url = "http://beta.geocoding.cloudmade.com/v3/BC9A493B41014CAABB98F0471D759707/api/geo.location.search.2?format=json&source=OSM&enc=UTF-8&limit=1&q="+latLng.lat+";"+latLng.lng;
-//		$.ajax({
-//			type: "GET",
-//			url: app.ws.proxy ? app.ws.proxy + encodeURIComponent(url) : url,
-//			context: this,
-//			timeout: 5000,
-//			dataType: "json",
-//			success: function(resp) {
-//				if (resp.status.success) {
-//					var p = resp.places[0];
-//					var arr = $.map([p.street, p.houseNumber], function(val) {
-//						if (!val || !($.trim(val).length)) {
-//							return null;
-//						}
-//						return val;
-//					});
-//					var address = arr.join(" ") + (p.city && arr.length ? ", " + p.city.replace(/~/g, "") : "");
-//					onFound(address);
-//				}
-//				else {
-//					onFail();
-//				}
-//			},
-//			error: function(a, text, c) {
-//				onFail();
-//			},
-//			complete: function() {
-//				onComplete();
-//				app.mapInst.mapLoading(false);
-//				
-//			}
-//		});
-//	},
-	
+
 	getAddress: function(latLng, onFound, onFail, onComplete) {
 		onFail = onFail || function() {};
 		onComplete = onComplete || function() {};
 		
-		var url = "http://www.mapquestapi.com/geocoding/v1/reverse";
+		var url = "http://open.mapquestapi.com/geocoding/v1/reverse";
+
 		$.ajax({
 			url: url,
 			data: {
@@ -150,13 +126,15 @@ app.GeoCoder = L.Class.extend({
 					city = loc.adminArea5;
 				var streetArr = street.split(" ");
 				var nbr = null;
-				try {
+
+                try {
 					nbr = parseInt(streetArr[0]);
 					nbr = nbr.toString();
 				}
 				catch(e) {
 					nbr = "";
-				};
+				}
+
 				if (nbr.length && nbr !== "NaN") {
 					var street = [];
 					for (var i=1,len=streetArr.length; i<len; i++) {
@@ -165,8 +143,17 @@ app.GeoCoder = L.Class.extend({
 					street = street.join(" ");
 					street = street + " " + nbr;
 				}
-				
-				onFound( [street, city].join(", "));
+
+                var finalAddress = "";
+
+                if (street && city) {
+                    finalAddress = street + ", " + city;
+                } else if (street) {
+                    finalAddress = street;
+                } else {
+                    finalAddress = city;
+                }
+				onFound(finalAddress);
 			},
 			error: function(a, text, c) {
 				onFail();

@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 var utils = {
 	
 		round: function(val, nbrOfDecimals) {
@@ -58,9 +74,6 @@ var utils = {
 			fromEpsg = fromEpsg.toUpperCase();
 			toEpsg = toEpsg.toUpperCase();
 			
-//			if (!proj4.defs[fromEpsg]) {
-//				fromEpsg = this.projDefs[fromEpsg];
-//			}
 			if (fromEpsg === "EPSG:3021") {
 				fromEpsg = "+proj=tmerc +lat_0=0 +lon_0=15.8062845294444 +k=1.00000561024+x_0=1500064.274 +y_0=-667.711 +ellps=GRS80 +units=m";
 			}
@@ -69,22 +82,13 @@ var utils = {
 			}
 			return proj4(fromEpsg, toEpsg, [e, n]);
 			
-//			var source = new Proj4js.Proj(fromEpsg),
-//				dest = new Proj4js.Proj(toEpsg),
-//				p = new Proj4js.Point(e, n);
-//			Proj4js.transform(source, dest, p);
-//			return [p.x, p.y];
 		},
 		
 		projDefs: {
 			"EPSG:4326": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
 			"EPSG:3857": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs",
-//			"GOOGLE": "EPSG:3857",
-//			"EPSG:900913": "EPSG:3857",
 			"EPSG:3008": "+proj=tmerc +lat_0=0 +lon_0=13.5 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
 			"EPSG:3006": "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
 			"EPSG:3021": "+proj=tmerc +lat_0=0 +lon_0=15.8062845294444 +k=1.00000561024+x_0=1500064.274 +y_0=-667.711 +ellps=GRS80 +units=m"
 		}
-		
-		
 };

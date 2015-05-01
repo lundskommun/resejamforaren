@@ -10,7 +10,7 @@
 <title>Resejämföraren</title>
 
 <!-- 
-Copyright (C) 2013 City of Lund (Lunds kommun)
+Copyright (C) 2013-2015 City of Lund (Lunds kommun)
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -32,15 +32,14 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 <link rel="stylesheet" href="lib/bootstrap-3.0.2/css/bootstrap.css" />
 <link rel="stylesheet" href="lib/bootstrap-3.0.2/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css" />
-<link rel="stylesheet"
-	href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
 <![endif]-->
 
 <!-- OUR CODE CSS -->
 <link rel="stylesheet" href="core/css/style.css" />
-
+<link rel="stylesheet" href="core/css/typeahead.css" />
 
 <!-- ------------------------------ JS ---------------------------------------------- -->
 <!-- LIBS JS -->
@@ -52,17 +51,15 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 <!--  script src="http://fgnass.github.io/spin.js/dist/spin.min.js"></script>-->
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="lib/bootstrap-3.0.2/js/bootstrap.min.js"></script>
-<script src="lib/bootstrap-3.0.2/typeahead/typeahead.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-<script
-	src="lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script	src="lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="lib/spin.min.js"></script>
 <script src="lib/x2js-v1.1.3/xml2json.min.js"></script>
+<script src="lib/typeahead.js-0.10.5/typeahead.bundle.min.js"></script>
 
 <!-- OUR CODE JS -->
+<script src="core/js/config.js"></script>
 <script src="core/js/app.js"></script>
-<!-- app's namespace -->
-
 <script src="core/js/utils.js"></script>
 <script src="core/js/Map.js"></script>
 <script src="core/js/Search.js"></script>
@@ -72,26 +69,11 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 
 <!-- Plugins (for path calculation) -->
 <script src="plugins/Plugin.js"></script>
-<!-- The base class for plugins -->
-<script src="plugins/Plugin_walk.js"></script>
-<script src="plugins/Plugin_bike.js"></script>
-<script src="plugins/Plugin_drive.js"></script>
 <script src="plugins/Plugin_mqWalk.js"></script>
 <script src="plugins/Plugin_mqBike.js"></script>
 <script src="plugins/Plugin_mqDrive.js"></script>
-
-<script src="plugins/Plugin_skanetrafiken.js"></script>
 <script src="plugins/Plugin_skanetrafiken_lund.js"></script>
 <script src="plugins/Plugin_resrobot.js"></script>
-
-
-<!--  script src="core/js/shared.js"></script>
-<script src="core/js/results.js"></script>
-<script src="core/js/search.js"></script>
-<script src="core/js/complete.js"></script>
-<script src="core/js/map.js"></script>
-<script src="core/js/analytics.js"></script>
-<script src="core/js/init.js"></script>-->
 
 
 </head>
@@ -99,8 +81,8 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 	<div class="container rj-page">
 		<div class="row row-header">
 			<div class="col-md-12 rj-header">
-				<img src="img/lund/logo_lund.png" class="lund-logo"></img> <img
-					src="img/rj/huvud_rese_ny.png" class="rj-logo"></img>
+				<img src="img/lund/logo_lund.png" class="lund-logo">
+                <img src="img/rj/huvud_rese_ny.png" class="rj-logo">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 rj-sidebar">
 				<h4>Vad betyder dina resvanor i längden?</h4>
@@ -113,46 +95,42 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 				<form class="rj-form">
 					<table class="col-xs-12">
 						<tr>
-							<td><input id="beginAddress" type="text"
-								style="float: left;" placeholder="Från adress"
-								class="form-control rj-input-field"></input>
+							<td>
+                                <input id="beginAddress" type="text" placeholder="Från adress" class="form-control rj-input-field">
 							</td>
-							<td id="pinbegin-td" style="padding-left: 15px;"></img>
+							<td id="pinbegin-td" style="padding-left: 15px;">
 							</td>
 						</tr>
 						<tr>
-							<td><input id="endAddress" type="text"
-								placeholder="Till adress" class="form-control rj-input-field"></input>
+							<td>
+                                <input id="endAddress" type="text" placeholder="Till adress" class="form-control rj-input-field">
 							</td>
 							<td id="pinend-td" style="padding-left: 15px;"></td>
 						</tr>
 						<tr style="text-align:right;">
 							<td>
-								<button id="searchButton" type="button"
-									data-loading-text="Beräknar..."
-									class="btn btn-small btn-default">Jämför</button>
+								<button id="searchButton" type="button" data-loading-text="Beräknar..." class="btn btn-small btn-default">Jämför</button>
 							</td>
 						</tr>
 					</table>
 				</form>
 				<h4>Resultat av din jämförelse</h4>
 				<div class="result-box table-responsive">
-					<table id="results-table" ng-controller="ResultsCtrl"
-						class="table ng-scope">
+					<table id="results-table" ng-controller="ResultsCtrl" class="table ng-scope">
 						<tr>
 							<th></th>
-							<th><a href="#modal-info-walk" role="button"
-								data-toggle="modal"> <img src="img/plugin_walk.png">
-							</a></th>
-							<th><a href="#modal-info-bike" role="button"
-								data-toggle="modal"> <img src="img/plugin_bike.png"> </a>
+							<th>
+                                <a href="#modal-info-walk" role="button" data-toggle="modal"><img src="img/plugin_walk.png"></a>
+                            </th>
+							<th>
+                                <a href="#modal-info-bike" role="button" data-toggle="modal"><img src="img/plugin_bike.png"></a>
 							</th>
-							<th><a href="#modal-info-drive" role="button"
-								data-toggle="modal"> <img src="img/plugin_drive.png">
-							</a></th>
-							<th><a href="#modal-info-skanetrafiken" role="button"
-								data-toggle="modal"> <img src="img/plugin_skanetrafiken.png">
-							</a></th>
+							<th>
+                                <a href="#modal-info-drive" role="button" data-toggle="modal"><img src="img/plugin_drive.png"></a>
+                            </th>
+							<th>
+                                <a href="#modal-info-skanetrafiken" role="button" data-toggle="modal"><img src="img/plugin_skanetrafiken.png"></a>
+                            </th>
 						</tr>
 						<tr>
 							<th>Tid</th>
@@ -197,7 +175,7 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 							<td class="ng-binding"></td>
 						</tr>
 						<tr>
-							<th>Energi</th>
+							<th>Energi per år</th>
 							<td class="ng-binding"></td>
 							<td class="ng-binding"></td>
 							<td class="ng-binding"></td>
@@ -225,14 +203,11 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 				<div id="map"></div>
 			</div>
 
-			<div id="modal-info-walk" tabindex="-1" role="dialog"
-				aria-labelledby="modal-info-walk-label" aria-hidden="true"
-				class="modal fade">
+			<div id="modal-info-walk" tabindex="-1" role="dialog" aria-labelledby="modal-info-walk-label" aria-hidden="true" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h4 class="modal-title modal-info-walk-label">Gång</h4>
 						</div>
 						<div class="modal-body">
@@ -256,8 +231,7 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h4 class="modal-title modal-info-bike-label">Cykla</h4>
 						</div>
 						<div class="modal-body">
@@ -293,8 +267,7 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h4 class="modal-title modal-info-drive-label">Köra bil</h4>
 						</div>
 						<div class="modal-body">
@@ -358,31 +331,14 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h4 class="modal-title modal-info-skanetrafiken-label">Skånetrafiken</h4>
 						</div>
 						<div class="modal-body">
-							<p>Resejämförarens uppgifter för kollektivtrafik (sträckor,
-								linjer, kostnader och koldioxidberäkningar) bygger på data från
-								Skånetrafiken. Resvägen styrs av slutdestination, vilket innebär
-								att det är lämpligast väg som anges och inte närmsta hållplats
-								från startpunkt. Kollektivtrafikangivelserna gäller tåg/buss
-								samt gång till/från hållplats. För sträckor till och från
-								hållplats anges den genaste vägen. Gånghastigheten mellan
-								hållplats och slutpunkt är beräknad på 4 km per timme (ger ca 15
-								min per kilometer). Koldioxidberäkningarna anges i kg koldioxid
-								per personkilometer.</p>
-							<p>Priset för en enkelresa med kollektivtrafik är beräknad på
-								kostnaden av ett månadskort fördelad på 440 resor per år (220
-								arbetsdagar).</p>
-							<p>Restider för kollektivtrafiken utgår från en resa som
-								startar kl 08:00 på en måndag. Det innebär att det kan finnas
-								mer fördelaktiga avgångar som lämnar aktuell hållplats innan kl
-								08:00.</p>
-							<p>För Köpenhamnsregionen anges endast information om
-								tågtrafiken. Detaljerad information om busstrafiken finns på
-								www.skanetrafiken.se.</p>
+							<p>Resejämförarens uppgifter för kollektivtrafik (sträckor, linjer, kostnader och koldioxidberäkningar) bygger på data från Skånetrafiken. Resvägen styrs av slutdestination, vilket innebär att det är lämpligast väg som anges och inte närmsta hållplats från startpunkt. Kollektivtrafikangivelserna gäller tåg/buss samt gång till/från hållplats. För sträckor till och från hållplats anges den genaste vägen. Gånghastigheten mellan hållplats och slutpunkt är, enligt Skånetrafikens beräknar satt till 4 km per timme (ger ca 15 min per kilometer). Koldioxidberäkningarna anges i kg koldioxid per personkilometer.</p>
+							<p>Priset för en enkelresa med kollektivtrafik är beräknad på kostnaden av ett månadskort fördelad på 440 resor per år (220 arbetsdagar).</p>
+							<p>Restider för kollektivtrafiken utgår från en resa som startar kl 08:00 på en måndag. Det innebär att det kan finnas mer fördelaktiga avgångar som lämnar aktuell hållplats innan kl 08:00.</p>
+							<p>För Köpenhamnsregionen anges endast information om tågtrafiken. Detaljerad information om busstrafiken finns på <a href="http://www.skanetrafiken.se">http://www.skanetrafiken.se</a>.</p>
 						</div>
 						<div class="modal-footer">
 							<button data-dismiss="modal" aria-hidden="true" class="btn">Stäng</button>
@@ -406,7 +362,7 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 							<h4 class="modal-title">Info</h4>
 						</div>
 						<div class="modal-body">
-							<iframe src="infoText/infoStart.html" style="min-height:31em;" width="100%" height="100%" frameborder="0" seamless="seamless" scrolling="yes" marginheight="0" marginwidth="0"></iframe>
+							<iframe src="info/info_start.html" style="min-height:31em;" width="100%" height="100%" frameborder="0" seamless="seamless" scrolling="yes" marginheight="0" marginwidth="0"></iframe>
 						</div>
 						<div class="modal-footer">
 							<button id="dialog-info-btnclose" data-dismiss="modal" aria-hidden="true" class="btn btn-default">Stäng</button>
@@ -415,25 +371,26 @@ Copyright (C) 2013 City of Lund (Lunds kommun)
 				</div>
 			</div>
 			<div class="col-xs-12 rj-links">
-				<a href="mailto:resejamforaren@lund.se"> <img
-					src="img/link_contact.png"></img> </a>
-				<a href="#modal-info" role="button" data-toggle="modal"><img src="img/link_information.png"></img></a>
+				<a href="mailto:tekniska.forvaltningen@lund.se"><img src="img/link_contact.png"></a>
+				<a href="#modal-info" role="button" data-toggle="modal"><img src="img/link_information.png"></a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 rj-partners">
 				<p>
-					Samarbetspartners: <img src="img/partner_skanetrafiken.png"></img>
-					<img src="img/partner_openrouteservice.png"></img> <img
-						src="img/partner_klimp.png"></img> <img
-						src="img/partner_lundamats.png"></img> <img
-						src="img/partner_eu.png"></img>
+					Samarbetspartners:
+                    <!-- TODO: Make this optionable depending on deployment
+                      <img src="img/lund/logo_lund.png">
+                      -->
+                    <img src="img/partner_skanetrafiken.png">
+					<img src="img/partner_openrouteservice.png">
+                    <img src="img/partner_lundamats.png">
 				</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 rj-footer">
-				<p>Copyright © Lunds kommun 2009-2013</p>
+				<p>Copyright © Lunds kommun 2009-2015</p>
 			</div>
 		</div>
 

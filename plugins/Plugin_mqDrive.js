@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 app.plugin.Plugin_mqDrive = app.Plugin.extend({
 	
 	name: "Plugin_mqDrive",
@@ -9,7 +25,7 @@ app.plugin.Plugin_mqDrive = app.Plugin.extend({
 			weight: 5,
 			dashArray: "5,15"
 		},
-		key: "Fmjtd%7Cluu22l01n9%2Caa%3Do5-5ftw1"
+		key: config.MapQuestKey
 	},
 	
 	calculate: function(startLatLng, endLatLng, callbacks, options) {
@@ -36,19 +52,17 @@ app.plugin.Plugin_mqDrive = app.Plugin.extend({
 	        }],
 	        options: {
 	        	unit: "k",
-	        	routeType: "shortest",
 	        	doReverseGeocode: false,
 	        	narrativeType: "none",
 	        	locale: "en_GB",
-	        	generalize: 30,
-	        	drivingStyle: 2  // 1: cautious, 2: normal, 3: aggressive
+	        	generalize: 5
 	        }
 		}
 		);
 		
 		var deferred = $.Deferred(),
 			self = this,
-			url = "http://www.mapquestapi.com/directions/v2/route?key="+this.options.key+"&json="+mqJson+"&inFormat=json";
+			url = "http://open.mapquestapi.com/directions/v2/route?key="+this.options.key+"&json="+mqJson+"&inFormat=json";
 
 		$.ajax({
 			url: url, //app.ws.proxy ? app.ws.proxy + encodeURIComponent(url) : url,
@@ -71,12 +85,12 @@ app.plugin.Plugin_mqDrive = app.Plugin.extend({
 				var walkTime = 5*60; // 5 min added (walk to and from parking)
                 tableData.time = R.time + walkTime;
                 tableData.distance = R.distance*1000;
-                tableData.costPerTrip = tableData.distance * 4 / 1000;
-                tableData.costPerYear = tableData.costPerTrip * 440;
-                tableData.co2PerTrip = tableData.distance/1000 * 0.206 + 0.041; // m->km
-                tableData.co2PerYear = 440 * tableData.co2PerTrip;
-                tableData.kcalYear = walkTime * 5.83;    //kcal per year
-                tableData.kgChok = tableData.kcalYear / 5600; // kg per year
+                tableData.costPerTrip = R.distance / 10.0 * 28;
+                tableData.costPerYear = tableData.costPerTrip * app.Plugin.options.tripsPerYear;
+                tableData.co2PerTrip = R.distance * 0.206 + 0.041;
+                tableData.co2PerYear = tableData.co2PerTrip * app.Plugin.options.tripsPerYear;
+                tableData.kcalYear = walkTime / 3600 * 345;
+                tableData.kgChok = tableData.kcalYear / 5450; // kg per year
 				
 				var lineDict = {"drive": latLngArr};
 				deferred.resolve(lineDict, tableData, self);

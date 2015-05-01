@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 app.SearchTrip = L.Class.extend({
 
 	initialize: function(map, options) {
@@ -150,7 +166,6 @@ app.SearchTrip = L.Class.extend({
 			if (val) {
 				$(this).popover({
 					trigger: "hover",
-//				title: "Choklad per år",
 					placement: "top",
 					html: true,
 					container: "body",
@@ -393,19 +408,6 @@ app.SearchTrip = L.Class.extend({
 	        		   return true;
 	        	   }
 	           },
-//	           {
-//	        	   type: "public",
-//	        	   name: "Plugin_skanetrafiken",
-//	        	   priority: 1,
-//	        	   condition: function(data) {
-//	        		   var	bounds = data.map.getBounds(),
-//	        		   		pluginExtent = L.latLngBounds(L.latLng([55.31415, 12.42041]), L.latLng([56.58764, 14.60606]));
-//	        		   if (pluginExtent.contains(data.fromLatLng) && pluginExtent.contains(data.toLatLng)) {
-//	        			   return true;
-//	        		   }
-//        			   return false;
-//	        	   }
-//	           },
 	           {
 	        	   type: "public",
 	        	   name: "Plugin_skanetrafiken_lund",
@@ -444,8 +446,8 @@ app.SearchTrip = L.Class.extend({
 	        		   }
         			   return false;
 	        	   }
-	           }
-			   ,{
+	           },
+               {
 	        	   type: "public",
 	        	   name: "Plugin_hallandstrafiken_lund",
 	        	   priority: 2,
@@ -463,11 +465,6 @@ app.SearchTrip = L.Class.extend({
 	        	   name: "Plugin_mqDrive",
 	        	   priority: 1
 	           },
-//	           {
-//	        	   type: "bike",
-//	        	   name: "Plugin_bike",
-//	        	   priority: 1
-//	           },
 	           {
 	        	   type: "bike",
 	        	   name: "Plugin_mqBike",

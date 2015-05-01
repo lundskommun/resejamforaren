@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 body {
 	background-color: rgb(240, 240, 240);
 	font-size: 100%;
@@ -95,16 +96,13 @@ h4 {
 	text-align: center;
 }
 
-/*.rj-form {
-    width: 80%;
+.rj-suggestion-street {
+    font-weight: bold;
 }
 
-.rj-input-field {
-    width: 90%;
-}*/
-.rj-form tr {
-	line-height: 4em;
-	height: 4em;
+.rj-suggestion-city {
+    color: gray;
+    font-size: 90%;
 }
 
 .rj-form img {

@@ -1,12 +1,21 @@
-/**
- * @constructor
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 app.Search = L.Class.extend({
 
-    searchFieldFrom: $("#beginAddress"),
-    searchFieldTo: $("#endAddress"),
-    
     features: [],
 
     initialize: function(map, options) {
@@ -18,86 +27,16 @@ app.Search = L.Class.extend({
         $.extend(true, this, options);
         
         this.addSearchPins();
-        if (this.acOptions) {
-            this.enableAC();
-        }
-        
+
+        this.enableAC();
+
         this.bindEvents();
     },
     
     geolocateOptions: {
-        apiKey: "Fmjtd%7Cluu22l01n9%2Caa%3Do5-5ftw1" //"3056090d8be74a20adb39f94338ff9dc"
+        apiKey: config.MapQuestKey
     },
-    
-//    processQuery: function(q) {
-//      q = $.trim(q);
-////        if (q.length <= 1) {
-////            return false;
-////        }
-//      var compsIn = q.split(" "),
-//          compsOut = [];
-//      
-//      // Trim whitespace for all components
-//      for (var i=0,len=compsIn.length; i<len; i++) {
-//          compsOut.push( $.trim(compsIn[i]) );
-//      }
-//      var nbr = compsOut[compsOut.length-1],
-//          streetName = compsOut.slice(0, compsOut.length-1);
-//      try {
-//          nbr = parseInt(nbr);
-//      }
-//      catch(e) {
-//          nbr = 1;
-//      }
-//      var address = streetName + " " + nbr;
-//      return address;
-//      
-//    },
-    
-    /**
-     * @q {String}
-     * @latLng {L.LatLng}
-     */
-//    geolocate: function(q, onSuccess) {
-//      if (this.isSearching) {
-//          return false;
-//      }
-//      this.isSearching = true;
-//      $('#searchButton, #clearButton').prop("disabled", true);
-//      app.mapInst.mapLoading(true);
-//      
-////        [country=Germany][street=Karlstr.][city=Leinfelden-Echterdingen][zip=70771][housenumber=12]
-//      
-//      // Make ajax call to geolocate service
-//      $.ajax({
-//          url: app.ws.proxy + encodeURIComponent("http://beta.geocoding.cloudmade.com/v3/" + this.geolocateOptions.apiKey + "/api/geo.location.search.2?format=json&source=OSM&enc=UTF-8&limit=1&q="+q), // &country=Sweden&locale=se
-//          type: "GET",
-//          context: this,
-//          dataType: "json",
-//          success: function(data) {
-//              if (data && data.status && data.status.success) {
-//                  var arr = data.places || [],
-//                      t, p, latLng;
-//                  for (var i=0,len=arr.length; i<len; i++) {
-//                      t = arr[i];
-////                        if (t.country.toUpperCase() === "SWEDEN") {
-//                      p = t.position;
-//                      latLng = L.latLng([p.lat, p.lon]);
-//                      onSuccess(latLng);  
-//                      return;
-//                  }
-//              }
-//              utils.log("No matching addresses found");
-//          },
-//          error: function() {},
-//          complete: function() {
-//              this.isSearching = false;
-//              var ready = this.isReadyForCalc();
-//              app.mapInst.mapLoading(false);
-//          }
-//      });
-//    },
-    
+
     geolocate: function(q, onSuccess) {
         if (this.isSearching) {
             return false;
@@ -105,8 +44,6 @@ app.Search = L.Class.extend({
         this.isSearching = true;
         $('#searchButton').prop("disabled", true);
         app.mapInst.mapLoading(true);
-        
-//      [country=Germany][street=Karlstr.][city=Leinfelden-Echterdingen][zip=70771][housenumber=12]
         
         // Make ajax call to geolocate service
         $.ajax({
@@ -121,7 +58,6 @@ app.Search = L.Class.extend({
                         t, p, latLng;
                     for (var i=0,len=arr.length; i<len; i++) {
                         t = arr[i];
-//                      if (t.country.toUpperCase() === "SWEDEN") {
                         p = t.position;
                         latLng = L.latLng([p.lat, p.lon]);
                         onSuccess(latLng);  
@@ -138,52 +74,13 @@ app.Search = L.Class.extend({
             }
         });
     },
-    
-    
+
     /**
      * Bind button click events.
      */
     bindEvents: function() {
         var self = this;
-        $("#beginAddress, #endAddress").on("change", function() {
-            var entry = $(this);
-            var type = entry.attr("id") === "beginAddress" ? "start" : "end", // endAddress
-                q = entry.val();
-            if (q.length >= 2) {
-                // Geolocate address and move marker to new position (if location found)
-                app.mapInst.mapLoading(true);
-                self.onEntryLoading(entry, true);
-                app.geoCoderInst.getLocation(q, function(latLng) {
-                    self.clearTable();
-                    app.mapInst.clearPaths();
-                    
-                    self.addMarker(type, latLng);
-                    if (self.markerStart && self.markerEnd) {
-                        $("#searchButton").data("calculate", true).text("Jämför"); // We are ready to compare now
-                        var fg = L.featureGroup([self.markerStart, self.markerEnd]);
-                        self.map.fitBounds( fg.getBounds(), {
-                            padding: [50, 50]
-                        });
-                        self.map.invalidateSize();
-                    }
-                    else if (self.markerStart || self.markerEnd) {
-                        var marker = self.markerStart || self.markerEnd;
-                        self.map.setView(marker.getLatLng(), 15);
-                    }
-                }, function() {
-                    // on error
-                    var marker = type === "start" ? self.markerStart : self.markerEnd;
-                    if (marker) {
-                        self.map.removeLayer(marker);
-                    }
-                }, function() {
-                    app.mapInst.mapLoading(false);
-                    self.onEntryLoading(entry, false);
-                });
-                
-            }
-        });
-        
+
         $('#searchButton').data("calculate", true); // Start as caclulate button
         $('#searchButton').on("click", function() {
             var isBtnCalc = $(this).data("calculate");
@@ -199,12 +96,90 @@ app.Search = L.Class.extend({
             return false;
         });
     },
-    
+
     enableAC: function() {
-        this.searchFieldFrom.typeahead(this.acOptions);
+        var self = this;
+
+        var bones = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: config.AddressSearchUrl
+        });
+
+        bones.initialize();
+
+        $('#beginAddress').typeahead(
+            {
+                minLength: 3
+            },
+            {
+                name: 'bones',
+                templates: {
+                    suggestion: function (x) {
+                        return '<p><span class="rj-suggestion-street">' + x.Street + '</span> <span class="rj-suggestion-city">' + x.City + '</span></p>';
+                    }
+                },
+                source: bones.ttAdapter()
+            }
+        );
+
+        $('#beginAddress').on('typeahead:selected', function (evt, suggestion, dataset) {
+            $('#beginAddress').typeahead('val', suggestion.Street + ', ' + suggestion.City);
+            var latLng = new L.LatLng(suggestion.Lat, suggestion.Lng);
+            self.clearTable();
+            app.mapInst.clearPaths();
+            self.addMarker("start", latLng);
+            if (self.markerStart && self.markerEnd) {
+                $("#searchButton").data("calculate", true).text("Jämför"); // We are ready to compare now
+                var fg = L.featureGroup([self.markerStart, self.markerEnd]);
+                self.map.fitBounds(fg.getBounds(), {
+                    padding: [50, 50]
+                });
+                self.map.invalidateSize();
+            }
+            else if (self.markerStart || self.markerEnd) {
+                var marker = self.markerStart || self.markerEnd;
+                self.map.setView(marker.getLatLng(), 15);
+            }
+        });
+
+        $('#endAddress').typeahead(
+            {
+                minLength: 3
+            },
+            {
+                name: 'bones',
+                templates: {
+                    suggestion: function (x) {
+                        return '<p><span class="rj-suggestion-street">' + x.Street + '</span> <span class="rj-suggestion-city">' + x.City + '</span></p>';
+                    }
+                },
+                source: bones.ttAdapter()
+            }
+        );
+
+        $('#endAddress').on('typeahead:selected', function (evt, suggestion, dataset) {
+            $('#endAddress').typeahead('val', suggestion.Street + ', ' + suggestion.City);
+            var latLng = new L.LatLng(suggestion.Lat, suggestion.Lng);
+            self.clearTable();
+            app.mapInst.clearPaths();
+            self.addMarker("end", latLng);
+            if (self.markerStart && self.markerEnd) {
+                $("#searchButton").data("calculate", true).text("Jämför"); // We are ready to compare now
+                var fg = L.featureGroup([self.markerStart, self.markerEnd]);
+                self.map.fitBounds(fg.getBounds(), {
+                    padding: [50, 50]
+                });
+                self.map.invalidateSize();
+            }
+            else if (self.markerStart || self.markerEnd) {
+                var marker = self.markerStart || self.markerEnd;
+                self.map.setView(marker.getLatLng(), 15);
+            }
+        });
+
     },
-    
-    
+
     onSearchResult: function(data) {
         utils.log('onSearchResult for ' + data['transportId'] + ': ' + data);
 
@@ -227,7 +202,7 @@ app.Search = L.Class.extend({
             app.mapInst.addPath(polyLine);
         }
     },
-    
+
     clearTable: function() {
         $('#results-table tr:gt(0)').find("td").text("");       
     },
@@ -373,11 +348,6 @@ app.Search = L.Class.extend({
             iconRetinaUrl: iconUrl,
             iconSize: [16, 27],
             iconAnchor: [8, 27]
-//          popupAnchor: [-3, -76],
-//          shadowUrl: 'my-icon-shadow.png',
-//          shadowRetinaUrl: 'my-icon-shadow@2x.png',
-//          shadowSize: [68, 95],
-//          shadowAnchor: [22, 94]
         });
         marker = L.marker(latLng, {icon: theIcon, draggable: true});
         marker.addTo(this.map);
@@ -390,7 +360,6 @@ app.Search = L.Class.extend({
          */
         marker.on("dragend", function(e) {
             self.onMarkerPositioned(e.target);
-//          self.calculate();
         });
         
         if (type === "start") {
@@ -426,7 +395,6 @@ app.Search = L.Class.extend({
                 if (left > 0 && left <= $("#map").width() && top > 0 && top <= $("#map").height()) {
                     var marker = self.addMarker(type, latLng);
                     self.onMarkerPositioned(marker);
-//                  self.calculate();
                 }
                 $(".dragpin").remove();
                 self.addSearchPins();
@@ -434,17 +402,5 @@ app.Search = L.Class.extend({
         });
     },
     
-    /**
-     * Options API: https://github.com/twitter/typeahead.js
-     */
-//  acOptions: {
-//      remote: 'http://open.mapquestapi.com/nominatim/v1/search?q=%QUERY',
-//      cache: true,
-//      wildcard: "%QUERY",
-//      copyright: '<p>Map data © OpenStreetMap contributors</p><p>Nominatim Search Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>'
-//    },
-    
-    
     CLASS_NAME: "app.Search"
-
 });

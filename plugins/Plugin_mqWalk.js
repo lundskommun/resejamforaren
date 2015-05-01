@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2015 City of Lund (Lunds kommun)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 app.plugin.Plugin_mqWalk = app.Plugin.extend({
 	
 	name: "Plugin_mqWalk",
@@ -9,14 +25,14 @@ app.plugin.Plugin_mqWalk = app.Plugin.extend({
 			weight: 5,
 			dashArray: "5,15"
 		},
-		walkKcalPerHour: 350,
-		key: "Fmjtd%7Cluu22l01n9%2Caa%3Do5-5ftw1"
+		walkKcalPerHour: 345,
+		key: config.MapQuestKey
 	},
 	
 	energyFromTime: function(tableData, sec) {
 		var kcalPerHour = this.options.walkKcalPerHour;
 		tableData.kcalYear = sec / 60 / 60 * kcalPerHour * app.Plugin.options.tripsPerYear;    //kcal per year
-		tableData.kgChok = tableData.kcalYear / 5600; // kg per year
+		tableData.kgChok = tableData.kcalYear / 5450; // kg per year
 	},
 	
 	calculate: function(startLatLng, endLatLng, callbacks, options) {
@@ -43,13 +59,12 @@ app.plugin.Plugin_mqWalk = app.Plugin.extend({
 	        }],
 	        options: {
 	        	unit: "k",
-	        	routeType: "bicycle", //pedestrian works bad
-				cyclingRoadFactor: 1,
+	        	routeType: "pedestrian",
 	        	doReverseGeocode: false,
 	        	narrativeType: "none",
 	        	locale: "en_GB",
-	        	generalize: 30,
-	        	drivingStyle: 2  // 1: cautious, 2: normal, 3: aggressive
+	        	generalize: 2,
+                walkingSpeed: app.Plugin.options.walkSpeed   / 1.6 // 1.6 km per mile
 	        }
 		});
 		
@@ -65,7 +80,7 @@ app.plugin.Plugin_mqWalk = app.Plugin.extend({
 		else {
 			var deferred = $.Deferred(),
 				self = this,
-				url = "http://www.mapquestapi.com/directions/v2/route?key="+this.options.key+"&json="+mqJson+"&inFormat=json";
+				url = "http://open.mapquestapi.com/directions/v2/route?key="+this.options.key+"&json="+mqJson+"&inFormat=json";
 			
 			$.ajax({
 				url: url,
@@ -85,10 +100,10 @@ app.plugin.Plugin_mqWalk = app.Plugin.extend({
 					}
 					var tableData = app.Plugin.getTypeResult();
 					
-					tableData.distance = R.distance*1000;
+					tableData.distance = R.distance * 1000;
 					tableData.time = (tableData.distance / app.Plugin.options.walkSpeed * 60 * 60)/1000; // convert to seconds							
 					tableData.costPerTrip = 0;
-					tableData.costPerYear = tableData.costPerTrip * 365;
+					tableData.costPerYear = tableData.costPerTrip * app.Plugin.options.tripsPerYear;
 					tableData.co2PerTrip = 0;
 					tableData.co2PerYear = 0;
 					
