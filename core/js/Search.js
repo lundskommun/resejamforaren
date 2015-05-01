@@ -116,7 +116,7 @@ app.Search = L.Class.extend({
                 name: 'bones',
                 templates: {
                     suggestion: function (x) {
-                        return '<p><span class="rj-suggestion-street">' + x.Street + '</span> <span class="rj-suggestion-city">' + x.City + '</span></p>';
+                        return '<p><span class="rj-suggestion-street">' + x.primary + '</span> <span class="rj-suggestion-city">' + x.secondary + '</span></p>';
                     }
                 },
                 source: bones.ttAdapter()
@@ -124,8 +124,8 @@ app.Search = L.Class.extend({
         );
 
         $('#beginAddress').on('typeahead:selected', function (evt, suggestion, dataset) {
-            $('#beginAddress').typeahead('val', suggestion.Street + ', ' + suggestion.City);
-            var latLng = new L.LatLng(suggestion.Lat, suggestion.Lng);
+            $('#beginAddress').typeahead('val', suggestion.primary + ', ' + suggestion.secondary);
+            var latLng = new L.LatLng(suggestion.location[0], suggestion.location[1]);
             self.clearTable();
             app.mapInst.clearPaths();
             self.addMarker("start", latLng);
@@ -151,7 +151,7 @@ app.Search = L.Class.extend({
                 name: 'bones',
                 templates: {
                     suggestion: function (x) {
-                        return '<p><span class="rj-suggestion-street">' + x.Street + '</span> <span class="rj-suggestion-city">' + x.City + '</span></p>';
+                        return '<p><span class="rj-suggestion-street">' + x.primary + '</span> <span class="rj-suggestion-city">' + x.secondary + '</span></p>';
                     }
                 },
                 source: bones.ttAdapter()
@@ -159,8 +159,8 @@ app.Search = L.Class.extend({
         );
 
         $('#endAddress').on('typeahead:selected', function (evt, suggestion, dataset) {
-            $('#endAddress').typeahead('val', suggestion.Street + ', ' + suggestion.City);
-            var latLng = new L.LatLng(suggestion.Lat, suggestion.Lng);
+            $('#endAddress').typeahead('val', suggestion.primary + ', ' + suggestion.secondary);
+            var latLng = new L.LatLng(suggestion.location[0], suggestion.location[1]);
             self.clearTable();
             app.mapInst.clearPaths();
             self.addMarker("end", latLng);
