@@ -1,0 +1,13 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Cykel' %}</h1>
+
+<p><img src="{% static 'rjweb/img/info/Cykel_ruta_info.png' %}"></p>
+
+{% include 'rjweb/part_cykelInfo.html' %}
+
+<p class="info-return"><a href="info_rakna">{% trans 'Tillbaka' %}</a></p>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Kollektivtrafik' %}</h1>
+
+<p><img src="{% static 'rjweb/img/info/Buss_ruta_info.png' %}"/></p>
+
+<p>{% trans 'Läs lite' %} <a href='info_bussInfoNerd'>{% trans 'nördinformation' %}</a> {% trans 'om bussarna.'%}</p>
+
+<p class="info-return"><a href="info_rakna">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

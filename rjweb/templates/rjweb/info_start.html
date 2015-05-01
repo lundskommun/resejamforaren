@@ -1,0 +1,18 @@
+﻿{% extends "rjweb/_info_base.html" %}
+{% load i18n %}
+{% block "content" %}
+<h1>{% trans 'Information om Resejämföraren' %}</h1>
+<ul>
+    <li><a href="info_allmant">{% trans 'Allmänt' %}</a></li>
+    <li><a href="info_rakna">{% trans 'Så här har vi beräknat i Resejämföraren' %}</a></li>
+    <li><a href="info_faq">{% trans 'Vanliga frågor och svar' %}</a></li>
+    <li><a href="info_kartfunktion">{% trans 'Kartfunktionen OpenStreetMap' %}</a></li>
+    <li><a href="info_redOsm">{% trans 'Att redigera i OpenStreetMap' %}</a></li>
+    <li><a href="info_framtid">{% trans 'Framtida utveckling' %}</a></li>
+    <li><a href="info_data">{% trans 'Datakällor' %}</a></li>
+    <li><a href="info_ansvar">{% trans 'Ansvarsfriskrivning' %}</a></li>
+    <li><a href="info_rattighet">{% trans 'Nyttjande och rättigheter' %}</a></li>
+    <li><a href="info_tack">{% trans 'Tack till' %}</a></li>
+    <li><a href="info_ide">{% trans 'Idé och utveckling' %}</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+{% load i18n %}
+{% load staticfiles %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+<title>Resejämföraren</title>
+
+<!-- 
+Copyright (C) 2013-2015 City of Lund (Lunds kommun)
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+ -->
+
+
+<!-- ------------------------------ CSS ---------------------------------------------- -->
+
+<!-- LIBS CSS -->
+<link rel="stylesheet" href="{% static 'rjweb/lib/bootstrap-3.0.2/css/bootstrap.css' %}" />
+<link rel="stylesheet" href="{% static 'rjweb/lib/bootstrap-3.0.2/css/bootstrap-theme.min.css' %}" />
+<link rel="stylesheet" href="{% static 'rjweb/lib/font-awesome-4.0.3/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+<![endif]-->
+
+<!-- OUR CODE CSS -->
+<link rel="stylesheet" href="{% static 'rjweb/core/css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'rjweb/core/css/typeahead.css' %}" />
+
+<!-- ------------------------------ JS ---------------------------------------------- -->
+
+<script type="text/javascript">
+    var DJANGO_STATIC_URL = {{ django_static_url }};
+</script>
+
+<!-- LIBS JS -->
+<script src="{% static 'rjweb/lib/Respond-1.4.2/dest/respond.min.js' %}"></script>
+<script src="{% static 'rjweb/lib/es5-shim-2.3.0/es5-shim.min.js' %}"></script>
+<script src="{% static 'rjweb/lib/es5-shim-2.3.0/es5-sham.min.js' %}"></script>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+<script src="{% static 'rjweb/lib/proj4js-2.1.2/dist/proj4.js' %}"></script>
+<script src="{% static 'rjweb/lib/bootstrap-3.0.2/js/bootstrap.min.js' %}"></script>
+<script	src="{% static 'rjweb/lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js' %}"></script>
+<script src="{% static 'rjweb/lib/spin.min.js' %}"></script>
+<script src="{% static 'rjweb/lib/x2js-v1.1.3/xml2json.min.js' %}"></script>
+<script src="{% static 'rjweb/lib/typeahead.js-0.10.5/typeahead.bundle.min.js' %}"></script>
+
+<!-- OUR CODE JS -->
+<script src="config.js"></script>
+<script src="{% static 'rjweb/core/js/app.js' %}"></script>
+<script src="{% static 'rjweb/core/js/utils.js' %}"></script>
+<script src="{% static 'rjweb/core/js/Map.js' %}"></script>
+<script src="{% static 'rjweb/core/js/Search.js' %}"></script>
+<script src="{% static 'rjweb/core/js/SearchTrip.js' %}"></script>
+<script src="{% static 'rjweb/core/js/GeoCoder.js' %}"></script>
+<script src="{% static 'rjweb/core/js/init.js' %}"></script>
+
+<!-- Plugins (for path calculation) -->
+<script src="{% static 'rjweb/plugins/Plugin.js' %}"></script>
+<script src="{% static 'rjweb/plugins/Plugin_mqWalk.js' %}"></script>
+<script src="{% static 'rjweb/plugins/Plugin_mqBike.js' %}"></script>
+<script src="{% static 'rjweb/plugins/Plugin_mqDrive.js' %}"></script>
+<script src="{% static 'rjweb/plugins/Plugin_skanetrafiken_lund.js' %}"></script>
+<script src="{% static 'rjweb/plugins/Plugin_resrobot.js' %}"></script>
+
+</head>
+<body>
+	<div class="container rj-page">
+		<div class="row row-header">
+			<div class="col-md-12 rj-header">
+				<img src="{% static 'rjweb/img/lund/logo_lund.png' %}" class="lund-logo">
+                <img src="{% static 'rjweb/img/rj/huvud_rese_ny.png' %}" class="rj-logo">
+			<div class="rj-lang">
+				<a href="language?lang={{ other_lang_code }}">View in {{ other_lang_name }}</a>
+			</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 rj-sidebar">
+				<h4>{% trans 'Vad betyder dina resvanor i längden?' %}</h4>
+				<p>{% blocktrans trimmed %}
+                    Här kan du ta reda på vilka effekter dina resvanor har på
+					plånboken, hälsan och klimatet. Tjänsten täcker hela Skåne- och
+					Köpenhamnsregionen.
+                    {% endblocktrans %}
+                </p>
+				<h4>{% trans 'Så här gör du' %}</h4>
+				<p>
+                    {% blocktrans trimmed %}
+                    Sök adresserna via sökfälten eller dra nålarna direkt till kartan.
+                    {% endblocktrans %}
+                </p>
+				<form class="rj-form">
+					<table class="col-xs-12">
+						<tr>
+							<td>
+                                <input id="beginAddress" type="text" placeholder="{% trans 'Från adress' %}" class="form-control rj-input-field">
+							</td>
+							<td id="pinbegin-td" style="padding-left: 15px;">
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <input id="endAddress" type="text" placeholder="{% trans 'Till adress' %}" class="form-control rj-input-field">
+							</td>
+							<td id="pinend-td" style="padding-left: 15px;"></td>
+						</tr>
+						<tr style="text-align:right;">
+							<td>
+								<button id="searchButton" type="button" data-loading-text="{% trans 'Beräknar...' %}" class="btn btn-small btn-default">{% trans 'Jämför' %}</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<h4>{% trans 'Resultat av din jämförelse' %}</h4>
+				<div class="result-box table-responsive">
+					<table id="results-table" ng-controller="ResultsCtrl" class="table ng-scope">
+						<tr>
+							<th></th>
+							<th>
+                                <a href="#modal-info-walk" role="button" data-toggle="modal"><img src="{% static 'rjweb/img/plugin_walk.png' %}"></a>
+                            </th>
+							<th>
+                                <a href="#modal-info-bike" role="button" data-toggle="modal"><img src="{% static 'rjweb/img/plugin_bike.png' %}"></a>
+							</th>
+							<th>
+                                <a href="#modal-info-drive" role="button" data-toggle="modal"><img src="{% static 'rjweb/img/plugin_drive.png' %}"></a>
+                            </th>
+							<th>
+                                <a href="#modal-info-skanetrafiken" role="button" data-toggle="modal"><img src="{% static 'rjweb/img/plugin_skanetrafiken.png' %}"></a>
+                            </th>
+						</tr>
+						<tr>
+							<th>{% trans 'Tid' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>{% trans 'Längd' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>{% trans 'Pris per resa' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>{% trans 'Pris per år' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>CO<sub>2</sub> {% trans 'per resa' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>CO<sub>2</sub> {% trans 'per år' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>{% trans 'Energi per år' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>{% trans 'Choklad per år' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+						<tr>
+							<th>{% trans 'Källa' %}</th>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+							<td class="ng-binding"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 rj-map hidden-xs">
+				<div id="map"></div>
+			</div>
+
+			<div id="modal-info-walk" tabindex="-1" role="dialog" aria-labelledby="modal-info-walk-label" aria-hidden="true" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-walk-label">{% trans 'Gång' %}</h4>
+						</div>
+						<div class="modal-body">
+                            {% include 'rjweb/part_gangInfo.html' %}
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">{% trans 'Stäng' %}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="modal-info-bike" tabindex="-1" role="dialog" aria-labelledby="modal-info-bike-label" aria-hidden="true" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-bike-label">{% trans 'Cykla' %}</h4>
+						</div>
+						<div class="modal-body">
+                            {% include 'rjweb/part_cykelInfo.html' %}
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">{% trans 'Stäng' %}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="modal-info-drive" tabindex="-1" role="dialog" aria-labelledby="modal-info-drive-label" aria-hidden="true" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-drive-label">{% trans 'Köra bil' %}</h4>
+						</div>
+						<div class="modal-body">
+                            {% include 'rjweb/part_bilInfo.html' %}
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">{% trans 'Stäng' %}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="modal-info-skanetrafiken" tabindex="-1" role="dialog" aria-labelledby="modal-info-skanetrafiken-label" aria-hidden="true" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title modal-info-skanetrafiken-label">{% trans 'Skånetrafiken' %}</h4>
+						</div>
+						<div class="modal-body">
+                            {% include 'rjweb/part_bussInfo.html' %}
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" aria-hidden="true" class="btn">{% trans 'Stäng' %}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<!-- Modal for info -->
+			<div id="modal-info" tabindex="-1" role="dialog"
+				aria-labelledby="modal-info-label" aria-hidden="true"
+				class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title">{% trans 'Info' %}</h4>
+						</div>
+						<div class="modal-body">
+							<iframe src="info_start" style="min-height:31em;" width="100%" height="100%" frameborder="0" seamless="seamless" scrolling="yes" marginheight="0" marginwidth="0"></iframe>
+						</div>
+						<div class="modal-footer">
+							<button id="dialog-info-btnclose" data-dismiss="modal" aria-hidden="true" class="btn btn-default">{% trans 'Stäng' %}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 rj-links">
+				<a href="mailto:tekniska.forvaltningen@lund.se"><img src="{% static 'rjweb/img/link_contact.png' %}"></a>
+				<a href="#modal-info" role="button" data-toggle="modal"><img src="{% static 'rjweb/img/link_information.png' %}"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 rj-partners">
+				<p>
+					{% trans 'Samarbetspartners:' %}
+                    <!-- TODO: Make this optionable depending on deployment
+                      <img src="img/lund/logo_lund.png">
+                      -->
+                    <img src="{% static 'rjweb/img/partner_skanetrafiken.png' %}">
+					<img src="{% static 'rjweb/img/partner_openrouteservice.png' %}">
+                    <img src="{% static 'rjweb/img/partner_lundamats.png' %}">
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 rj-footer">
+				<p>Copyright © Lunds kommun 2009-2015</p>
+			</div>
+		</div>
+
+	</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', config.GoogleAnalyticsKey, 'auto');
+      ga('send', 'pageview');
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<p>
+    {% blocktrans trimmed %}
+    Resejämförarens uppgifter för kollektivtrafik (sträckor, linjer, kostnader och koldioxidberäkningar) bygger på data
+    från Skånetrafiken. Resvägen styrs av slutdestination, vilket innebär att det är lämpligast väg som anges och inte
+    närmsta hållplats från startpunkt. Kollektivtrafikangivelserna gäller tåg/buss samt gång till/från hållplats. För
+    sträckor till och från hållplats anges den genaste vägen. Gånghastigheten mellan hållplats och slutpunkt är, enligt
+    Skånetrafikens beräknar satt till 4 km per timme (ger ca 15 min per kilometer). Koldioxidberäkningarna anges i kg
+    koldioxid per personkilometer.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    Priset för en enkelresa med kollektivtrafik är beräknad på kostnaden av ett månadskort fördelad på 440 resor per
+    år (220 arbetsdagar).
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    Restider för kollektivtrafiken utgår från en resa som startar kl 08:00 på en måndag. Det innebär att det kan finnas
+    mer fördelaktiga avgångar som lämnar aktuell hållplats innan kl 08:00.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    För Köpenhamnsregionen anges endast information om tågtrafiken. Detaljerad information om busstrafiken finns på
+    <a href="http://www.skanetrafiken.se">http://www.skanetrafiken.se</a>.
+    {% endblocktrans %}
+</p>

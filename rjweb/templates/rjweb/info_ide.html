@@ -1,0 +1,25 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Idé och utveckling' %}</h1>
+
+<p>{% trans 'Från Tekniska förvaltningen i Lunds kommun:' %}</p>
+
+<ul>
+    <li><a href="mailto:ylva.aqvist@lund.se">Ylva S Åqvist</a></li>
+    <li><a href="mailto:charlotta.lenninger@lund.se">Charlotta Lenninger</a></li>
+</ul>
+
+<p>{% trans 'Från Stadsbyggnadskontoret i Lunds kommun:' %}</p>
+
+<ul>
+    <li><a href="mailto:britta.duve-hansen@lund.se">Britta Duve Hansen</a></li>
+    <li><a href="mailto:jonas.andreasson@lund.se">Jonas Andreasson</a></li>
+    <li><a href="mailto:amanda.bergknut@gmail.com">Amanda Bergknut</a> (extern)</li>
+</ul>
+
+<p class="info-return"><a href="info_start">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

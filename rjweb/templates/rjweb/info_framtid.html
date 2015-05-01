@@ -1,0 +1,19 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Framtida utveckling av Resejämföraren' %}</h1>
+
+<p>
+    {% blocktrans trimmed %}
+    Inom kort kommer Resejämföraren även att innehålla hållplatsanvisningar för varje busshållplats i Skåne där
+    hållplatsnamn, linjeanvisningar kommer att visas.
+    {% endblocktrans %}
+</p>
+
+<p>Det kommer senare även bli möjligt att lägga in individuella resvägar.</p>
+
+<p class="info-return"><a href="info_start">Tillbaka</a></p>
+
+{% endblock %}

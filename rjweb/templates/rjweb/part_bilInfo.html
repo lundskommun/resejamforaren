@@ -1,0 +1,82 @@
+{% load i18n %}
+<p>
+    {% blocktrans trimmed %}
+    Beräkningen av milkostnad bygger på Bilsvar, Konsumentverkets webbtjänst om bilar.
+    {% endblocktrans %}
+    {% trans 'Se ' %}<a href="http://www.bilsvar.se">{% trans 'Bilsvar' %}</a>.
+</p>
+<ul>
+    <li>
+        {% blocktrans trimmed %}
+        Försäkringspremierna hämtades från Länsförsäkringar i december 2014. Beräkningen är baserad på en Volvo V 70
+        2.0 (Sveriges vanligaste bilmodell), bensindriven, årsmodell 2009 där ägaren är en 45-årig man, boendes
+        centralt i tätorten Lund med full bonus. Försäkringskostnaden är beräknad till 6 500 kr för en grundförsäkring
+        utan rabatter men inklusive vagnskadegaranti (försäkringskostnaden bygger på en fiktiv person vilket innebär
+        att kostnadsnivån är satt i det högre spannet). Självrisken är satt till den lägsta nivån.
+        {% endblocktrans %}
+    </li>
+    <li>
+        {% blocktrans trimmed %}
+        Finansieringen av bilen är inte med i kalkylen. Kostnadsberäkningen bygger på att bilen betalas kontant.
+        {% endblocktrans %}
+    </li>
+    <li>
+        {% blocktrans trimmed %}
+        Bilens innehavstid, vilket är tiden man planerar att behålla bilen, är satt till fem år.
+        {% endblocktrans %}
+    </li>
+    <li>
+        {% blocktrans trimmed %}
+        De fasta kostnaderna är utslagna på 1 500 mil/år (den årliga körsträckan är satt till 1 500 mil).
+        {% endblocktrans %}
+    </li>
+    <li>
+        {% blocktrans trimmed %}
+        Punkterna Parkering och övrigt i bilkalkylen har satts till 0 kronor.
+        {% endblocktrans %}
+    </li>
+    <li>
+        {% blocktrans trimmed %}
+        När beräkningarna gjordes {{ price_updated }} var bensinpriset ca {{ price_petrol }} kr/liter.
+        {% endblocktrans %}
+    </li>
+    <li>
+        {% blocktrans trimmed %}
+        Milkostnaden för Volvo V70 2.0 blir {{ price_driving }} kr/mil (enligt Bilsvar, Konsumentverkets webbtjänst om bilar).
+        {% endblocktrans %}
+    </li>
+</ul>
+<p>
+    {% blocktrans trimmed %}
+    Koldioxidberäkningarna utgår från Konsumentverkets webbtjänst Bilsvar. Enligt detta beräkningsunderlag släpper en Volvo
+    V70 2.0 ut 206 g/km.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    Begreppet kallstart är ett uttryck för en bil som startas med kall förbränningsmotor (dvs förbränningsrum och
+    insugningsrör har svalnat sedan det senast var i bruk). En kallstart innebär försämrade förbränningsförhållanden
+    jämfört med en varm motor, vilket leder till en drygt 40 procentig ökning av bränsleförbrukning den första
+    kilometern och därmed också ett ökat koldioxidutsläpp.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    För att kompensera för försämrad förbränningsförhållanden har en schablon för koldioxidutsläpp på 41 gram CO2
+    lagts på koldioxidutsläpp vid varje påbörjad resa i Resejämföraren (Trafikverkets Effektsamband 2010).
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    Tidsåtgången för bilresor är beräknade på tider utanför rusningstrafik. En tidsåtgång på 2,5 minuter för promenad
+    från parkering samt betalning av parkeringsavgift är pålagd såväl i början av resan som vid slutdestination, dvs
+    totalt 5 minuter.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans trimmed %}
+    För att kompensera för hastighetssänkningar till följd av trafikljus, köbildning och övergångsställen inne i
+    tätorternas centrum under rusningstrafik har en tidsschablon lagts på bilresor inom de största tätorterna. Denna
+    kompensation sker automatiskt för kollektivtrafiken.
+    {% endblocktrans %}
+</p>

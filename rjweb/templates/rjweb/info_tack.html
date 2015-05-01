@@ -1,0 +1,21 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Tack till' %}</h1>
+
+<table>
+	<tr>
+		<td><img src="{% static 'rjweb/img/info/logo_ST.png' %}"></td>
+        <td><a href="http://www.skanetrafiken.se">Skånetrafiken</a></td>
+	</tr>
+	<tr>
+		<td><img src="{% static 'rjweb/img/info/logo_ORS.png' %}"></td>
+		<td><a href="http://www.openrouteservice.org">OpenRouteService</a></td>
+	</tr>
+</table>
+
+<p class="info-return"><a href="info_start">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

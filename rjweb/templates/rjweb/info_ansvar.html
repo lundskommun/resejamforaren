@@ -1,0 +1,23 @@
+{% extends "rjweb/_info_base.html" %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Ansvarsfriskrivning' %}</h1>
+
+<p>
+    {% blocktrans trimmed %}
+    Denna sida visas bäst om du har en upplösning om minst 1280 &times; 1024 pixlar på din skrivbordsdator. Sidan är inte
+    mobilanpassad. Vi har använt de senaste versionerna av de största webbläsarna när vi testat. Vi kan tyvärr ej
+    garantera att det fungerar helt felfritt i just den kombination av webbläsare och operativsystem du använder.
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans trimmed %}
+    Om du finner något som inte fungerar, får du gärna höra av dig till oss.
+    {% endblocktrans %}
+</p>
+
+<p class="info-return"><a href="info_start">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

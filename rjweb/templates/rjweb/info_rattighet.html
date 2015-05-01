@@ -1,0 +1,28 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Nyttjande och rättigheter' %}</h1>
+
+<p>
+    {% blocktrans trimmed %}
+    Tjänsten är producerad och ägs i
+    dess utseende och funktion av Lunds kommun. De underliggande tjänster,
+    data och funktioner ägs av respektive tjänste/dataleverantörer.
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans trimmed %}
+    Lunds kommun har inget emot att tjänsten används av andra, men vi vill
+    att det sker i samråd med oss. Vi kan tillhandahålla upplägget, kod
+    och gränssnitt efter avtal. När det gäller användningen av tjänsten
+    menar vi att det förpliktigar att man uppdaterar ruttdata i
+    OpenStreetMap.
+    {% endblocktrans %}
+</p>
+
+<p class="info-return"><a href="info_start">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

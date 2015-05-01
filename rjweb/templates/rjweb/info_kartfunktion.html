@@ -1,0 +1,35 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Kartfunktion' %}</h1>
+
+<p>
+    {% blocktrans trimmed %}
+    Resejämföraren bygger på en routing
+    service som använder data från <a href="http://www.openstreetmap.org"
+                                      target="_blank">OpenStreetMap</a>, vilket är en redigerbar
+    kartfunktion som stäcker sig över hela världen.
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans trimmed %}
+    OpenStreetMap är en
+    fri karttjänst som startades som ett ideellt projekt i syftet att ta
+    fram geografisk information (främst vägkartor) för fri spridning.
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans trimmed %}
+    Kartfunktionen bygger på att användare registrerar sig kostnadsfritt
+    på webbplatsen och med hjälp av GPS data lägger in sina spårloggar för
+    att redigera kartan.
+    {% endblocktrans %}
+</p>
+
+<p class="info-return"><a href="info_start">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

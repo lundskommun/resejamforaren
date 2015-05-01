@@ -1,0 +1,35 @@
+{% extends "rjweb/_info_base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block "content" %}
+
+<h1>{% trans 'Datakällor' %}</h1>
+
+<p>
+    {% blocktrans trimmed %}
+    Följande datakällor används direkt eller indirekt i Resejämföraren.
+    {% endblocktrans %}
+</p>
+
+<table>
+
+    <tr>
+        <td><img src="{% static 'rjweb/img/info/logo_OSM.png' %}"></td>
+        <td><a href="http://www.openstreetmap.org" target="_blank">OpenStreetMap</a></td>
+    </tr>
+
+    <tr>
+        <td><img src="{% static 'rjweb/img/info/logo_ORS.png' %}"></td>
+        <td><a href="http://www.openrouteservice.org" target="_blank">OpenRouteService</a></td>
+    </tr>
+
+    <tr>
+        <td><img src="{% static 'rjweb/img/info/logo_ST.png' %}"></td>
+        <td><a href="http://www.skanetrafiken.se" target="_blank">Sk&aring;netrafiken</a></td>
+    </tr>
+
+</table>
+
+<p class="info-return"><a href="info_start">{% trans 'Tillbaka' %}</a></p>
+
+{% endblock %}

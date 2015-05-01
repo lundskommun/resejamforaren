@@ -1,0 +1,1006 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-13 20:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\templates\rjweb\_info_base.html:6 .\templates\rjweb\info_start.html:4
+msgid "Information om Resejämföraren"
+msgstr "Information about Resejämföraren"
+
+#: .\templates\rjweb\index.html:96
+msgid "Vad betyder dina resvanor i längden?"
+msgstr "What are the long-term effects of your travel habits?"
+
+#: .\templates\rjweb\index.html:97
+msgid ""
+"Här kan du ta reda på vilka effekter dina resvanor har på plånboken, hälsan "
+"och klimatet. Tjänsten täcker hela Skåne- och Köpenhamnsregionen."
+msgstr ""
+"You can use this service to find out what effects your travel habits have on "
+"your finances, your health and the climate. The service covers the entire "
+"Skåne and Copenhagen Region."
+
+#: .\templates\rjweb\index.html:103
+msgid "Så här gör du"
+msgstr "How it works"
+
+#: .\templates\rjweb\index.html:105
+msgid "Sök adresserna via sökfälten eller dra nålarna direkt till kartan."
+msgstr ""
+"Use the search field to search the addresses or click the pins and place "
+"them directly on the map."
+
+#: .\templates\rjweb\index.html:113
+msgid "Från adress"
+msgstr "From address"
+
+#: .\templates\rjweb\index.html:120
+msgid "Till adress"
+msgstr "To address"
+
+#: .\templates\rjweb\index.html:126
+msgid "Beräknar..."
+msgstr "Calculating..."
+
+#: .\templates\rjweb\index.html:126
+msgid "Jämför"
+msgstr "Compare"
+
+#: .\templates\rjweb\index.html:131
+msgid "Resultat av din jämförelse"
+msgstr "Results of your comparison"
+
+#: .\templates\rjweb\index.html:150
+msgid "Tid"
+msgstr "Time"
+
+#: .\templates\rjweb\index.html:157
+msgid "Längd"
+msgstr "Distance"
+
+#: .\templates\rjweb\index.html:164
+msgid "Pris per resa"
+msgstr "Cost per trip"
+
+#: .\templates\rjweb\index.html:171
+msgid "Pris per år"
+msgstr "Cost per year"
+
+#: .\templates\rjweb\index.html:178
+msgid "per resa"
+msgstr "per trip"
+
+#: .\templates\rjweb\index.html:185
+msgid "per år"
+msgstr "per year"
+
+#: .\templates\rjweb\index.html:192
+msgid "Energi per år"
+msgstr "Energy per year"
+
+#: .\templates\rjweb\index.html:199
+msgid "Choklad per år"
+msgstr "Chocolate per year"
+
+#: .\templates\rjweb\index.html:206
+msgid "Källa"
+msgstr "Source"
+
+#: .\templates\rjweb\index.html:225 .\templates\rjweb\info_gangInfo.html:6
+#: .\templates\rjweb\info_rakna.html:10
+msgid "Gång"
+msgstr "Walk"
+
+#: .\templates\rjweb\index.html:231 .\templates\rjweb\index.html.py:248
+#: .\templates\rjweb\index.html:265 .\templates\rjweb\index.html.py:281
+#: .\templates\rjweb\index.html:305
+msgid "Stäng"
+msgstr "Close"
+
+#: .\templates\rjweb\index.html:242
+msgid "Cykla"
+msgstr "Bike"
+
+#: .\templates\rjweb\index.html:259
+msgid "Köra bil"
+msgstr "Drive"
+
+#: .\templates\rjweb\index.html:275
+msgid "Skånetrafiken"
+msgstr "Skanetrafiken"
+
+#: .\templates\rjweb\index.html:299
+msgid "Info"
+msgstr "Info"
+
+#: .\templates\rjweb\index.html:318
+msgid "Samarbetspartners:"
+msgstr "Partners:"
+
+#: .\templates\rjweb\info_allmant.html:4 .\templates\rjweb\info_start.html:6
+msgid "Allmänt"
+msgstr "General"
+
+#: .\templates\rjweb\info_allmant.html:7
+msgid ""
+"Resejämföraren är ett webbaserat verktyg som gör det möjligt att jämföra "
+"olika färdmedel (cykel, gång, kollektivtrafik och bil) med avseende på tid, "
+"sträcka, kostnad, miljöbelastning samt kaloriförbrukning."
+msgstr ""
+"Journey Comparison is a web-based tool that makes it possible to compare "
+"different modes of transport (cycle, foot, public transport and car) in "
+"terms of time, segment, cost, environmental load and calorie expenditure."
+
+#: .\templates\rjweb\info_allmant.html:14
+msgid ""
+"Resejämföraren ingår i ett större projekt som har målsättningen att öka "
+"användandet av hållbara transportmedel i regionen. Utgångspunkten är att de "
+"som omprövar sina vanor vill fatta beslut utifrån parametrar som är "
+"betydelsefulla i vardagen. Syftet med Resejämföraren är att tillhandahålla "
+"ett lättillgängligt verktyg som stödjer omprövandet av resvanor generellt "
+"och framhåller de hållbara färdsätten specifikt."
+msgstr ""
+"Journey Comparison is part of a larger project whose goal is to increase the "
+"use of sustainable modes of transport in the region. The basic idea is that "
+"people who re-evaluate their habits will make decisions based on parameters "
+"that are relevant to their everyday lives. The purpose of Journey Comparison "
+"is to provide an easily accessible tool that supports the re-evaluation of "
+"travel habits in general and emphasises sustainable modes of transport in "
+"particular."
+
+#: .\templates\rjweb\info_allmant.html:23
+msgid ""
+"Resejämförarens anvisning av sträcka är baserade på närmsta vägen från punkt "
+"A till punkt B för gång och cykel men snabbaste vägen för bilen. För gång- "
+"och cykelvägen innebär detta att den trafiksäkraste inte alltid anges. Tider "
+"för kollektivtrafik utgår från måndagar kl 8 medan tiderna för bil, cykel, "
+"och gång utgår från tider utanför rusningstimmarna."
+msgstr ""
+"Journey Comparison’s recommended segment is based on the shortest way from "
+"point A to point B for journeys on foot or bicycle but the fastest way for "
+"journeys by car. This means that the recommended route is not always the "
+"best in terms of traffic safety for walkers and cyclists. Journey times for "
+"public transport are based on Monday departures at 8 o’clock in the morning, "
+"while the journey times for car, cycle and foot are based on non-peak "
+"traffic hours."
+
+#: .\templates\rjweb\info_allmant.html:32
+msgid ""
+"Tiderna som anges inkluderar tid för parkering, betalning av "
+"parkeringsavgifter samt gångväg till och från parkeringsplats."
+msgstr ""
+"The stated journey times include time for parking, paying parking charges "
+"and walking to and from the parking place."
+
+#: .\templates\rjweb\info_allmant.html:39
+msgid ""
+"I Resejämföraren möjliggörs en jämförelse mellan cykel, gång, "
+"kollektivtrafik och bil för samtliga orter och adresser i Skåne och "
+"Köpenhamnsregionen."
+msgstr ""
+"Journey Comparison lets you compare journeys by cycle, foot, public "
+"transport and car for all towns and addresses in Skåne and the Copenhagen "
+"region."
+
+#: .\templates\rjweb\info_allmant.html:46
+msgid "Årsvärdena bygger på tur och returresor."
+msgstr "The annual values are based on return journeys."
+
+#: .\templates\rjweb\info_allmant.html:51
+#: .\templates\rjweb\info_ansvar.html:21
+#: .\templates\rjweb\info_bilInfo.html:12
+#: .\templates\rjweb\info_bussInfo.html:12
+#: .\templates\rjweb\info_cykelInfo.html:12
+#: .\templates\rjweb\info_data.html:33 .\templates\rjweb\info_faq.html:132
+#: .\templates\rjweb\info_gangInfo.html:12 .\templates\rjweb\info_ide.html:23
+#: .\templates\rjweb\info_kartfunktion.html:33
+#: .\templates\rjweb\info_rakna.html:52
+#: .\templates\rjweb\info_rattighet.html:26
+#: .\templates\rjweb\info_redOsm.html:72 .\templates\rjweb\info_tack.html:19
+msgid "Tillbaka"
+msgstr "Go Back"
+
+#: .\templates\rjweb\info_ansvar.html:5 .\templates\rjweb\info_start.html:13
+msgid "Ansvarsfriskrivning"
+msgstr "Disclaimer"
+
+#: .\templates\rjweb\info_ansvar.html:8
+msgid ""
+"Denna sida visas bäst om du har en upplösning om minst 1280 &times; 1024 "
+"pixlar på din skrivbordsdator. Sidan är inte mobilanpassad. Vi har använt de "
+"senaste versionerna av de största webbläsarna när vi testat. Vi kan tyvärr "
+"ej garantera att det fungerar helt felfritt i just den kombination av "
+"webbläsare och operativsystem du använder."
+msgstr ""
+"This site was developed for a screen size of 1280x1024 pixels. Journey "
+"Comparison 1.0 was developed and tested in…"
+
+#: .\templates\rjweb\info_ansvar.html:16
+msgid ""
+"Om du finner något som inte fungerar, får du gärna höra av dig till oss."
+msgstr ""
+"If you find something that is not working properly, then please get in touch "
+"with us."
+
+#: .\templates\rjweb\info_bilInfo.html:6 .\templates\rjweb\info_rakna.html:18
+msgid "Bil"
+msgstr "Car"
+
+#: .\templates\rjweb\info_bussInfo.html:6 .\templates\rjweb\info_rakna.html:22
+msgid "Kollektivtrafik"
+msgstr "Public Transport"
+
+#: .\templates\rjweb\info_bussInfo.html:10
+msgid "Läs lite"
+msgstr "Read some"
+
+#: .\templates\rjweb\info_bussInfo.html:10
+msgid "nördinformation"
+msgstr "nerdy information"
+
+#: .\templates\rjweb\info_bussInfo.html:10
+msgid "om bussarna."
+msgstr "about the buses."
+
+#: .\templates\rjweb\info_cykelInfo.html:6
+#: .\templates\rjweb\info_rakna.html:14
+msgid "Cykel"
+msgstr "Bicycle"
+
+#: .\templates\rjweb\info_data.html:6 .\templates\rjweb\info_start.html:12
+msgid "Datakällor"
+msgstr ""
+
+#: .\templates\rjweb\info_data.html:9
+msgid "Följande datakällor används direkt eller indirekt i Resejämföraren."
+msgstr ""
+
+#: .\templates\rjweb\info_faq.html:6 .\templates\rjweb\info_start.html:8
+msgid "Vanliga frågor och svar"
+msgstr "FAQ"
+
+#: .\templates\rjweb\info_faq.html:9
+msgid "Varför väljer inte Resejämföraren min bil- / cykelväg?"
+msgstr "Why doesn’t Journey Comparison select my roadway/cycleway?"
+
+#: .\templates\rjweb\info_faq.html:11
+msgid ""
+"Tjänsten bygger på att engagerade användare uppdaterar karttjänsten genom "
+"att exempelvis lägga in gång- och cykelvägar. Om en specifik väg inte visas "
+"i Resejämföraren beror det på att den ännu inte är inlagd. Eftersom "
+"OpenStreetMap har många engagerade användare i Lund är det troligt att den "
+"kommer uppdateras inom kort."
+msgstr ""
+"The service is built up by enthusiastic users who update the map service by "
+"adding footways and cycleways, for example. If a specific way is not shown "
+"in Journey Comparison, this means it has not yet been added. Since "
+"OpenStreetMap has many enthusiastic users in Lund, it is likely that it will "
+"be updated soon."
+
+#: .\templates\rjweb\info_faq.html:18
+msgid "Varför fastnar inte nålen i kartan?"
+msgstr "Why don’t the pins stick to the map?"
+
+#: .\templates\rjweb\info_faq.html:20
+msgid ""
+"Om nålen inte fastnar beror det på att du dragit nålen till aktuell plats "
+"istället för att först klicka på nålen och därefter klicka på adressen du "
+"önskar markera. Om du använder sökfältet kan du hitta din exakta adress på "
+"ett enkelt sätt. Kartans zoomfunktion hjälper dig att hitta dina respunkter "
+"i hela Skåne- och Köpenhamnsregionen."
+msgstr ""
+"If the pin does not stick, it is because you have dragged the pin to the "
+"place instead of first clicking on the pin and then clicking the address you "
+"want to pin. You can use the search field to easily find the exact address. "
+"The zoom function on the map will help you find your journey nodes "
+"throughout the entire Skåne and Copenhagen Region."
+
+#: .\templates\rjweb\info_faq.html:28
+msgid "Hur är uppgifterna i Resejämföraren beräknade?"
+msgstr "How is the information in Journey Comparison calculated?"
+
+#: .\templates\rjweb\info_faq.html:30
+msgid ""
+"Under knappen Information finns samtliga beräkningsgrunder till "
+"Resejämföraren."
+msgstr ""
+"Click the Information button to see the basis for all Journey Comparison "
+"calculations."
+
+#: .\templates\rjweb\info_faq.html:35
+msgid "Varför går det inte att använda Resejämföraren i Göteborg?"
+msgstr "Why can’t I use Journey Comparison in Gothenburg?"
+
+#: .\templates\rjweb\info_faq.html:37
+msgid ""
+"Resejämföraren är just nu tillgänglig i hela Skåne- och Köpenhamnsregionen. "
+"För att det ska vara möjligt att jämföra i andra län krävs att andra "
+"kollektivtrafikbolag kopplar upp sig mot Resejämföraren."
+msgstr ""
+"At present, Journey Comparison is available only in the entire Skåne and "
+"Copenhagen Region. To make journey comparisons in other counties possible, "
+"other public transport companies will have to link up with Journey "
+"Comparison."
+
+#: .\templates\rjweb\info_faq.html:43
+msgid "Varför skrollar inte kartan när jag drar den med musen?"
+msgstr "Why doesn’t the map scroll when I drag it with the mouse?"
+
+#: .\templates\rjweb\info_faq.html:45
+msgid ""
+"Du har Internet Explorer och drar för snabbt. Dra långsammare så fungerar "
+"det."
+msgstr ""
+"You are using Internet Explorer and are dragging too fast. Drag slower and "
+"it should work."
+
+#: .\templates\rjweb\info_faq.html:50
+#, fuzzy
+#| msgid "Varför ser man inte hela skärmbilden?"
+msgid " Varför ser man inte hela skärmbilden?"
+msgstr "Why don’t I see the entire screen display?"
+
+#: .\templates\rjweb\info_faq.html:52
+msgid ""
+"Resejämföraren är utvecklad för skärmar 1280*1024 för att uppnå bästa "
+"möjliga kartbild."
+msgstr ""
+"Journey Comparison was developed for a 1280 x 1024 screen to achieve the "
+"optimal map image."
+
+#: .\templates\rjweb\info_faq.html:57
+msgid ""
+"Varför visas en rutt där vissa av sträckorna är enkelriktade i verkligheten?"
+msgstr ""
+"Why does Journey Comparison show a route where some of the segments are "
+"actually one-way?"
+
+#: .\templates\rjweb\info_faq.html:59
+msgid ""
+"Det beror troligtvis på att användaren inte har registrerat sträckan som "
+"enkelriktad. Felet kommer med stor sannolikhet att åtgärdas inom kort av "
+"andra användare. För att minimera antalet fel har tekniska förvaltningen "
+"gjort en översyn av kartan för Lunds tätort."
+msgstr ""
+"The user has probably not tagged the segment as one-way. The error will in "
+"all likelihood soon be corrected by other users. To minimise the number of "
+"errors, the Municipal Technical Office has reviewed the map for central Lund."
+
+#: .\templates\rjweb\info_faq.html:67
+msgid ""
+"Varför väljer Resejämföraren gång- och cykelväg över Helsingborg- Helsingör "
+"medan bil och tåg går över öresundsbron när jag jämför pendling mellan "
+"Köpenhamn och Lund?"
+msgstr ""
+"Why does Journey Comparison select a footway/cycleway over Helsingborg- "
+"Helsingör while cars and trains cross the Öresund Bridge when I compare "
+"commuter routes between Copenhagen and Lund?"
+
+#: .\templates\rjweb\info_faq.html:73
+msgid ""
+"Det är en effekt av hur ruttplaneringen görs. I dagsläget tar den inte "
+"hänsyn till att man kan ta cykel på tåget. Dessutom finns ju redan "
+"alternativet med kollektivtrafik - använd det alternativet som svar på "
+"frågan."
+msgstr ""
+"This is an effect of how route planning is done. At present, it does not "
+"take into account that you can take your bicycle on the train. In addition, "
+"there is already the public transport alternative – use that alternative as "
+"an answer to your question."
+
+#: .\templates\rjweb\info_faq.html:80
+msgid ""
+"Jag får en ruta som säger \"Du har angett en punkt utan anknytning. Vänligen "
+"markera en ny punkt strax i närheten\" - varför det?"
+msgstr ""
+"A dialog box pops up that says ‘You have indicated a node with no "
+"connections. Please pin a new node nearby.’ Why?"
+
+#: .\templates\rjweb\info_faq.html:86
+msgid ""
+"Ruttplaneringen sker utifrån ett vägnät. Du befinner dig för långt ifrån ett "
+"sådant för att kunna göra beräkningen."
+msgstr ""
+"Route planning is based on a way network. You are too far away from a way "
+"network to do the calculation."
+
+#: .\templates\rjweb\info_faq.html:93
+msgid ""
+"Jag får en ruta som säger \"Du har antingen angivit en adress där det inte "
+"finns någon hållplats inom 300 m eller där hållplatserna ligger alltför nära "
+"varandra. Vänligen markera ny punkt.\" Varför det?"
+msgstr ""
+"A dialog box pops up that says ‘You have either entered an address for which "
+"there is no stop within 300 m or where the stops are too close to each "
+"other. Please pin a new node.’ Why?"
+
+#: .\templates\rjweb\info_faq.html:99
+msgid ""
+"Ruttplaneringen kan inte finna en reserelation för kollektivtrafiken som "
+"passar rutten, detta är speciellt vanligt om sträckan mellan start- och "
+"målpunkt är kort."
+msgstr ""
+"Route planning cannot find a journey relation for public transport that is "
+"suitable for the route. This is particularly common if the segment between "
+"the start and end nodes is short."
+
+#: .\templates\rjweb\info_faq.html:105
+msgid "Om jag satt en av nålarna fel, hur gör jag då?"
+msgstr "What should I do if I have put one of the pins in the wrong place?"
+
+#: .\templates\rjweb\info_faq.html:107
+msgid ""
+"Klicka på nålen i vänsterfältet och sätt den på önskad adress. Tyck på "
+"Jämför färdsätt eller tryck på Rensa knappen och gör om sökningen."
+msgstr ""
+"Click the pin in the left-hand field and place it on the desired address. "
+"Click ‘Compare Transport Mode’ or click the ‘Clear’ button and redo the "
+"search."
+
+#: .\templates\rjweb\info_faq.html:113
+msgid "Varför blir inte min rutt beräknad när jag söker adresser?"
+msgstr "Why is my route not calculated when I search addresses?"
+
+#: .\templates\rjweb\info_faq.html:115
+msgid ""
+"Du behöver sätta nålarna manuellt på kartan. Adress-sökningen hjälper bara "
+"till att hitta adressen."
+msgstr ""
+"You have to place the pins on the map manually. The address search only "
+"helps you find the address."
+
+#: .\templates\rjweb\info_faq.html:120
+msgid "Varför kan jag välja mellan Karta, Satellit och OSM?"
+msgstr "Why can I choose among Map, Satellite and OSM views?"
+
+#: .\templates\rjweb\info_faq.html:122
+msgid ""
+"För att underlätta navigationen för användaren ges det en möjlighet att "
+"välja kartabild Det kan ibland vara lättare att orientera sig med hjälp av "
+"en satellitbild, ibland med en ritad karta. OSM betyder OpenStreetMap, "
+"vilket är den databas som används för ruttplaneringen. Om du saknar en rutt "
+"kan du kontrollera om den är inlagd i databasen via OSM fliken."
+msgstr ""
+"Users are given the option to choose a map view to make navigation easier. "
+"It can sometimes be easier to orient yourself using a satellite view, and "
+"sometimes using a drawn map. OSM stands for OpenStreetMap, which is the "
+"database used for route planning. If you cannot find a route, you can click "
+"the OSM tab to check whether it has been entered in the database."
+
+#: .\templates\rjweb\info_framtid.html:6
+msgid "Framtida utveckling av Resejämföraren"
+msgstr ""
+
+#: .\templates\rjweb\info_framtid.html:9
+msgid ""
+"Inom kort kommer Resejämföraren även att innehålla hållplatsanvisningar för "
+"varje busshållplats i Skåne där hållplatsnamn, linjeanvisningar kommer att "
+"visas."
+msgstr ""
+
+#: .\templates\rjweb\info_ide.html:6 .\templates\rjweb\info_start.html:16
+msgid "Idé och utveckling"
+msgstr "Idea and Development"
+
+#: .\templates\rjweb\info_ide.html:8
+msgid "Från Tekniska förvaltningen i Lunds kommun:"
+msgstr ""
+
+#: .\templates\rjweb\info_ide.html:15
+msgid "Från Stadsbyggnadskontoret i Lunds kommun:"
+msgstr ""
+
+#: .\templates\rjweb\info_kartfunktion.html:6
+msgid "Kartfunktion"
+msgstr "Map function"
+
+#: .\templates\rjweb\info_kartfunktion.html:9
+#, fuzzy
+#| msgid ""
+#| "Resejämföraren bygger på en routing service som använder data från <a "
+#| "href=\"http://www.openstreetmap.org\" target=\"_blank\">OpenStreetMap</"
+#| "a>, vilket är en redigerbar kartfunktion som sträcker sig över hela "
+#| "världen."
+msgid ""
+"Resejämföraren bygger på en routing service som använder data från <a href="
+"\"http://www.openstreetmap.org\" target=\"_blank\">OpenStreetMap</a>, vilket "
+"är en redigerbar kartfunktion som stäcker sig över hela världen."
+msgstr ""
+"Journey Comparison is based on a routing service that uses data from "
+"OpenStreetMap, which is an editable map function that covers the entire "
+"world."
+
+#: .\templates\rjweb\info_kartfunktion.html:18
+msgid ""
+"OpenStreetMap är en fri karttjänst som startades som ett ideellt projekt i "
+"syftet att ta fram geografisk information (främst vägkartor) för fri "
+"spridning."
+msgstr ""
+"OpenStreetMap is a free map service that was started as a voluntary project "
+"aimed at developing geographical information (primarily street maps) for "
+"free distribution."
+
+#: .\templates\rjweb\info_kartfunktion.html:26
+msgid ""
+"Kartfunktionen bygger på att användare registrerar sig kostnadsfritt på "
+"webbplatsen och med hjälp av GPS data lägger in sina spårloggar för att "
+"redigera kartan."
+msgstr ""
+"The map function is based on users who register at no cost on the website "
+"and use GPS data to enter their trace logs to edit the map."
+
+#: .\templates\rjweb\info_rakna.html:5
+msgid "Så har vi beräknat i Resejämföraren"
+msgstr ""
+
+#: .\templates\rjweb\info_rakna.html:26
+msgid "Årsberäkningar"
+msgstr ""
+
+#: .\templates\rjweb\info_rakna.html:29
+msgid ""
+"Kostnad och koldioxidutsläpp är multiplicerat med två resor per dag och 220 "
+"arbetsdagar per år, undantaget kostnad för buss som är priset för ett "
+"månadskort multiplicerat med elva (semesteravdrag). I årskostnaden för cykel "
+"multipliceras milkostnaden med två resor per dag och 220 arbetsdagar."
+msgstr ""
+"Cost and CO2 are multiplied by two journeys a day and 220 working days a "
+"year, except for the bus cost, which is based on the price of a monthly bus "
+"card multiplied by eleven (deduction for the annual leave month). To arrive "
+"at the annual cost of cycling, the cost per ten km is multiplied by two "
+"journeys a day and 220 working days."
+
+#: .\templates\rjweb\info_rakna.html:36
+msgid "Choklad"
+msgstr "Chocolate"
+
+#: .\templates\rjweb\info_rakna.html:39
+msgid ""
+"Chokladberäkningen är gjord utifrån formeln \"antal förbrukade kalorier\"/"
+"\"energi per gram choklad (5,6 kilokalorier)\"."
+msgstr ""
+"The chocolate calculation is based on the formula of ‘number of expended "
+"calories’/’energy per gram of chocolate (5.6 kilocalories)’."
+
+#: .\templates\rjweb\info_rakna.html:46
+msgid ""
+"Är resultatet t ex 30 kg så är det mängden choklad du kan konsumera extra om "
+"du går eller cyklar sträckan 2 gånger om dagen under minst 220 dagar per år."
+msgstr ""
+"If the result is, for example, 30 kg, that is the amount of extra chocolate "
+"you can consume if you walk or cycle the segment twice a day for at least "
+"220 days a year."
+
+#: .\templates\rjweb\info_rattighet.html:6
+#: .\templates\rjweb\info_start.html:14
+msgid "Nyttjande och rättigheter"
+msgstr "Use and rights"
+
+#: .\templates\rjweb\info_rattighet.html:9
+msgid ""
+"Tjänsten är producerad och ägs i dess utseende och funktion av Lunds kommun. "
+"De underliggande tjänster, data och funktioner ägs av respektive tjänste/"
+"dataleverantörer."
+msgstr ""
+"The service was produced by and is owned in appearance and function by the "
+"Municipality of Lund. The underlying services, data and features are owned "
+"by the respective service/data providers."
+
+#: .\templates\rjweb\info_rattighet.html:17
+msgid ""
+"Lunds kommun har inget emot att tjänsten används av andra, men vi vill att "
+"det sker i samråd med oss. Vi kan tillhandahålla upplägget, kod och "
+"gränssnitt efter avtal. När det gäller användningen av tjänsten menar vi att "
+"det förpliktigar att man uppdaterar ruttdata i OpenStreetMap."
+msgstr ""
+"The Municipality of Lund has no objection to the use of the service by "
+"others, but request that this takes place in consultation with us. We can "
+"provide the layout, code and interface upon agreement. In respect of use of "
+"the service, our position is that this imposes an obligation to update route "
+"data in OpenStreetMap."
+
+#: .\templates\rjweb\info_redOsm.html:6 .\templates\rjweb\info_start.html:10
+msgid "Att redigera i OpenStreetMap"
+msgstr "Editing in OpenStreetMap"
+
+#: .\templates\rjweb\info_redOsm.html:8
+msgid "Förberedelser"
+msgstr "Preparations"
+
+#: .\templates\rjweb\info_redOsm.html:11
+msgid ""
+"Öppna ett konto på OpenStreetMap (OSM) under http://www.openstreetmap.org. "
+"Det krävs endast en e-post adress för registrering."
+msgstr ""
+"Create a free OpenStreetMap (OSM) account at http://www.openstreetmap.org. "
+"All you need to sign up is an email address."
+
+#: .\templates\rjweb\info_redOsm.html:18
+msgid ""
+"För att ändra i databasen markera fliken Redigera när du är inne på kontot. "
+"Välja om ändringarna ska registreras direkt eller först när ändringen sparas."
+msgstr ""
+"To make changes to the database, log in to your account and click the ‘Edit’ "
+"tab. Select whether you want to register the change immediately (‘edit "
+"live’) or only after the change has been saved (‘edit with save’)."
+
+#: .\templates\rjweb\info_redOsm.html:24
+msgid "Lägg till nya vägar"
+msgstr "Add new ways"
+
+#: .\templates\rjweb\info_redOsm.html:27
+msgid ""
+"För att skapa en ny väg klickar du på kartan där vägen ska börja. På så sätt "
+"skapas en startpunkt. Varje gång du sedan klickar på kartan bildas en ny "
+"punkt och därmed en ny väg som binder samman punkten med den föregående. "
+"Vill du binda samman din väg med en befintlig väg klickar du på den punkt "
+"där du vill att vägen ska ansluta till den befintliga. På så sätt bildas en "
+"gemensam punkt. När vägen är klar avslutar du med att dubbelklicka."
+msgstr ""
+"To create a new way, click the map where the way is to begin. This creates a "
+"starting node. Each time you click the map thereafter, a new node is set and "
+"thus a new way that links the node to the preceding node. If you want to "
+"connect your way to an existing way, you click the node where you want the "
+"way to intersect with the existing one. This creates a shared node. When the "
+"way is finished, end by double- clicking the last node."
+
+#: .\templates\rjweb\info_redOsm.html:35
+msgid "Ändra befintliga vägar"
+msgstr "Edit existing ways"
+
+#: .\templates\rjweb\info_redOsm.html:38
+msgid ""
+"Om du klickar på en befintlig väg så markeras den, och alla dess punkter "
+"blir synliga. För att ändra sträckningen på vägen så klickar du på en punkt, "
+"håller ner musen och drar punkten dit du vill flytta den. Vill du flytta "
+"hela vägsträckningen klickar du på en linje och drar vägen dit du vill ha "
+"den."
+msgstr ""
+"Click on an existing way to highlight it and make all nodes on the way "
+"visible. To edit a segment on the way, click a node, hold down the mouse and "
+"drag the node to where you want to move it. If you want to move the entire "
+"way segment, click a line and drag the way to where you want it."
+
+#: .\templates\rjweb\info_redOsm.html:46
+msgid ""
+"Vill du ta bort en vägsträckning markerar du dess punkter och trycker på "
+"Delete."
+msgstr ""
+"If you want to delete a line segment, select the nodes on the way and press "
+"Delete."
+
+#: .\templates\rjweb\info_redOsm.html:51
+msgid "Egenskaper"
+msgstr "Tagging ways"
+
+#: .\templates\rjweb\info_redOsm.html:54
+msgid ""
+"Vägarna kan ha olika egenskaper som används vid ruttplaneringen, som till "
+"exempel cykel- och gångvägar. Dessa egenskaper lägger du till genom de runda "
+"knapparna som syns nere till höger när du markerat en vägsträckning. Du kan "
+"antingen lägga till egenskaper själv eller kopiera egenskaperna från en "
+"befintlig väg. För att program som Resejämföraren ska kunna beräkna "
+"färdsträckor är det viktigt att egenskaperna stavas rätt, är du osäker kan "
+"du jämföra med en existerande väg med samma egenskap. Observera behovet av "
+"att även lägga in enkelriktade sträckor. För att markera en väg som "
+"enkelriktad läggs detta till med en knapp till vänster när vägen är markerad."
+msgstr ""
+"The ways may have various tags used in route planning such as cycleways and "
+"footways. You add these tags using the round buttons seen at the bottom "
+"right once you have selected a way segment. You can either add tags yourself "
+"or copy tags from an existing way. To make it possible for programs like "
+"Journey Comparison to calculate journey segments, it is important that you "
+"spell the tags correctly. If you are not sure, check an existing way with "
+"the same tag. Please note there is also a need to add one-way segments. Once "
+"you have selected the way, you can tag it as ‘oneway’ with a button on the "
+"left-hand side."
+
+#: .\templates\rjweb\info_redOsm.html:64
+msgid "Avsluta"
+msgstr "End"
+
+#: .\templates\rjweb\info_redOsm.html:67
+msgid ""
+"Spara när du är klar med dina ändringar. Du har då även möjlighet att "
+"beskriva de ändringar du har genomfört."
+msgstr ""
+"When you are finished editing, click ‘Save.’ You will then also have the "
+"option to describe the edits you have made."
+
+#: .\templates\rjweb\info_start.html:7
+msgid "Så här har vi beräknat i Resejämföraren"
+msgstr ""
+
+#: .\templates\rjweb\info_start.html:9
+msgid "Kartfunktionen OpenStreetMap"
+msgstr ""
+
+#: .\templates\rjweb\info_start.html:11
+msgid "Framtida utveckling"
+msgstr ""
+
+#: .\templates\rjweb\info_start.html:15 .\templates\rjweb\info_tack.html:6
+msgid "Tack till"
+msgstr ""
+
+#: .\templates\rjweb\part_bilInfo.html:3
+msgid ""
+"Beräkningen av milkostnad bygger på Bilsvar, Konsumentverkets webbtjänst om "
+"bilar."
+msgstr ""
+"The estimated cost per km is based on Bilsvar, the Consumer Agency’s web "
+"service for cars."
+
+#: .\templates\rjweb\part_bilInfo.html:6
+#, fuzzy
+#| msgid "Se"
+msgid "Se "
+msgstr "See "
+
+#: .\templates\rjweb\part_bilInfo.html:6
+#, fuzzy
+#| msgid "Bil"
+msgid "Bilsvar"
+msgstr "Bilsvar"
+
+#: .\templates\rjweb\part_bilInfo.html:10
+msgid ""
+"Försäkringspremierna hämtades från Länsförsäkringar i december 2014. "
+"Beräkningen är baserad på en Volvo V 70 2.0 (Sveriges vanligaste bilmodell), "
+"bensindriven, årsmodell 2009 där ägaren är en 45-årig man, boendes centralt "
+"i tätorten Lund med full bonus. Försäkringskostnaden är beräknad till 6 500 "
+"kr för en grundförsäkring utan rabatter men inklusive vagnskadegaranti "
+"(försäkringskostnaden bygger på en fiktiv person vilket innebär att "
+"kostnadsnivån är satt i det högre spannet). Självrisken är satt till den "
+"lägsta nivån."
+msgstr ""
+"Insurance premiums were derived from the Länsförsäkringar insurance company "
+"in December 2014. The estimate is based on a Volvo V 70 2.0 (the most common "
+"car in Sweden), the 2009 model, owned by a 45-year-old man who lives in the "
+"central part of the city of Lund and qualifies for a full bonus. The cost of "
+"insurance is calculated at SEK 6 500 for basic insurance with no discounts "
+"but including a vehicle collision warranty. The excess is set to the lowest "
+"level."
+
+#: .\templates\rjweb\part_bilInfo.html:19
+msgid ""
+"Finansieringen av bilen är inte med i kalkylen. Kostnadsberäkningen bygger "
+"på att bilen betalas kontant."
+msgstr ""
+"The financing of the car is not included in the calculation. The cost "
+"estimate is based on that the car has been paid in cash."
+
+#: .\templates\rjweb\part_bilInfo.html:24
+msgid ""
+"Bilens innehavstid, vilket är tiden man planerar att behålla bilen, är satt "
+"till fem år."
+msgstr ""
+"The ownership period for the car, which is the period the owner intends to "
+"keep the car, is set to five years."
+
+#: .\templates\rjweb\part_bilInfo.html:29
+msgid ""
+"De fasta kostnaderna är utslagna på 1 500 mil/år (den årliga körsträckan är "
+"satt till 1 500 mil)."
+msgstr ""
+"The fixed costs are based on 15,000 km/year (annual driving distance is set "
+"to 15,000 km)."
+
+#: .\templates\rjweb\part_bilInfo.html:34
+msgid "Punkterna Parkering och övrigt i bilkalkylen har satts till 0 kronor."
+msgstr ""
+"The items ‘Parking’ and ‘Other’ in the car estimate have been set to zero."
+
+#: .\templates\rjweb\part_bilInfo.html:39
+#, fuzzy, python-format
+#| msgid ""
+#| "När beräkningarna gjordes i april 2012 var bensinpriset 15,90 kronor "
+#| "liter."
+msgid ""
+"När beräkningarna gjordes %(price_updated)s var bensinpriset ca %"
+"(price_petrol)s kr/liter."
+msgstr ""
+"When the calculations were made %(price_updated)s, the price of petrol was "
+"SEK %(price_petrol)s per litre."
+
+#: .\templates\rjweb\part_bilInfo.html:44
+#, fuzzy, python-format
+#| msgid ""
+#| "Milkostnaden för Volvo V70 2.0 blir enligt Konsumentverkets bilkalkylen "
+#| "28 kr/mil."
+msgid ""
+"Milkostnaden för Volvo V70 2.0 blir %(price_driving)s kr/mil (enligt "
+"Bilsvar, Konsumentverkets webbtjänst om bilar)."
+msgstr ""
+"According to Bilsvar car cost estimate, the cost per km for a Volvo V70 is "
+"SEK %(price_driving)s per 10 km."
+
+#: .\templates\rjweb\part_bilInfo.html:50
+#, fuzzy
+#| msgid ""
+#| "Koldioxidberäkningarna utgår från Konsumentverkets Nybilsguide. Enligt "
+#| "detta beräkningsunderlag släpper en Volvo V70 2.0 ut 206 g/km."
+msgid ""
+"Koldioxidberäkningarna utgår från Konsumentverkets webbtjänst Bilsvar. "
+"Enligt detta beräkningsunderlag släpper en Volvo V70 2.0 ut 206 g/km."
+msgstr ""
+"The carbon dioxide calculations are based on på Bilsvar. According to this "
+"basis of calculation, a Volvo V70 2.0 emits 206 g/km."
+
+#: .\templates\rjweb\part_bilInfo.html:56
+msgid ""
+"Begreppet kallstart är ett uttryck för en bil som startas med kall "
+"förbränningsmotor (dvs förbränningsrum och insugningsrör har svalnat sedan "
+"det senast var i bruk). En kallstart innebär försämrade "
+"förbränningsförhållanden jämfört med en varm motor, vilket leder till en "
+"drygt 40 procentig ökning av bränsleförbrukning den första kilometern och "
+"därmed också ett ökat koldioxidutsläpp."
+msgstr ""
+"The term ‘cold start’ refers to a car started with a cold combustion engine "
+"(that is, the combustion chamber and intake manifold have cooled since the "
+"last time the car was used). A cold start entails poorer combustion "
+"conditions compared with a warm engine, which leads to an increase in fuel "
+"consumption of about 40 per cent for the first kilometre and thus higher CO2 "
+"emissions."
+
+#: .\templates\rjweb\part_bilInfo.html:64
+msgid ""
+"För att kompensera för försämrad förbränningsförhållanden har en schablon "
+"för koldioxidutsläpp på 41 gram CO2 lagts på koldioxidutsläpp vid varje "
+"påbörjad resa i Resejämföraren (Trafikverkets Effektsamband 2010)."
+msgstr ""
+"To compensate for poorer combustion conditions, a standardised CO2 emission "
+"of 41 grams has been added to the CO2 emissions for every commenced journey "
+"in the Journey Comparison tool (Swedish Transport Administration publication "
+"series Effektsamband 2010)."
+
+#: .\templates\rjweb\part_bilInfo.html:70
+msgid ""
+"Tidsåtgången för bilresor är beräknade på tider utanför rusningstrafik. En "
+"tidsåtgång på 2,5 minuter för promenad från parkering samt betalning av "
+"parkeringsavgift är pålagd såväl i början av resan som vid slutdestination, "
+"dvs totalt 5 minuter."
+msgstr ""
+"The estimated time required for car journeys is based on non-peak traffic "
+"hours. A time of 2.5 minutes for walking to/from the car park and paying "
+"parking charges is added at the beginning and end of the journey (5 minutes "
+"total)."
+
+#: .\templates\rjweb\part_bilInfo.html:77
+msgid ""
+"För att kompensera för hastighetssänkningar till följd av trafikljus, "
+"köbildning och övergångsställen inne i tätorternas centrum under "
+"rusningstrafik har en tidsschablon lagts på bilresor inom de största "
+"tätorterna. Denna kompensation sker automatiskt för kollektivtrafiken."
+msgstr ""
+"To compensate for reductions in speed due to traffic lights, queues and "
+"zebra crossings in the town centres during peak traffic hours, a "
+"standardised time has been added to car journeys within the largest towns. "
+"This compensation is performed automatically for public transport."
+
+#: .\templates\rjweb\part_bussInfo.html:4
+msgid ""
+"Resejämförarens uppgifter för kollektivtrafik (sträckor, linjer, kostnader "
+"och koldioxidberäkningar) bygger på data från Skånetrafiken. Resvägen styrs "
+"av slutdestination, vilket innebär att det är lämpligast väg som anges och "
+"inte närmsta hållplats från startpunkt. Kollektivtrafikangivelserna gäller "
+"tåg/buss samt gång till/från hållplats. För sträckor till och från hållplats "
+"anges den genaste vägen. Gånghastigheten mellan hållplats och slutpunkt är, "
+"enligt Skånetrafikens beräknar satt till 4 km per timme (ger ca 15 min per "
+"kilometer). Koldioxidberäkningarna anges i kg koldioxid per personkilometer."
+msgstr ""
+"Journey Comparison’s results for public transport (segments, service routes, "
+"costs and CO2 calculations) are based on data from Skånetrafiken. The "
+"journey way is determined by the final destination, which means that the "
+"most suitable way is indicated and not the stop closest to the start node. "
+"The public transport results apply to train/bus and walking to/from the "
+"stop. The shortest way is indicated for walking segments to and from the "
+"stop. The walking speed between the final stop and final destination is "
+"estimated at 4 km/h (which is equal to about 15 minutes per km). CO2 "
+"estimates are stated in kg of CO2 per person-kilometre."
+
+#: .\templates\rjweb\part_bussInfo.html:14
+msgid ""
+"Priset för en enkelresa med kollektivtrafik är beräknad på kostnaden av ett "
+"månadskort fördelad på 440 resor per år (220 arbetsdagar)."
+msgstr ""
+"The price of a one-way journey by public transport is estimated based on the "
+"cost of a monthly bus card divided by 440 journeys per year (220 working "
+"days)."
+
+#: .\templates\rjweb\part_bussInfo.html:20
+msgid ""
+"Restider för kollektivtrafiken utgår från en resa som startar kl 08:00 på en "
+"måndag. Det innebär att det kan finnas mer fördelaktiga avgångar som lämnar "
+"aktuell hållplats innan kl 08:00."
+msgstr ""
+"Journey times for public transport are based on Monday departures at 8 "
+"o’clock in the morning. This means that there may be more advantageous "
+"departures leaving the current stop before 8 o´clock."
+
+#: .\templates\rjweb\part_bussInfo.html:26
+msgid ""
+"För Köpenhamnsregionen anges endast information om tågtrafiken. Detaljerad "
+"information om busstrafiken finns på <a href=\"http://www.skanetrafiken.se"
+"\">http://www.skanetrafiken.se</a>."
+msgstr ""
+"For the Copenhagen region, it states only information about train services. "
+"Detailed information about bus services are available on http://www."
+"skanetrafiken.se."
+
+#: .\templates\rjweb\part_cykelInfo.html:4
+msgid ""
+"Hastigheten är beräknad utifrån en hastighet på 18 kilometer i timmen. "
+"Hastigheten bygger på uppgifter från Lunds Tekniska Högskola som visar att "
+"en normalcyklist till eller från jobbet håller en hastighet mellan 18-22 km/"
+"h. Energiförbränning är beräknad utifrån en kaloriåtgång på 600 kcal/h "
+"(Apotekets råd om motion och friskvård 2014)."
+msgstr ""
+"The speed is calculated based on a normal speed of 18 km/h. The speed is "
+"based on information from Lund University showing that a normal cyclist to "
+"or from work maintain a speed between 18-22 km/h. Energy expenditure is "
+"calculated based on calorie expenditure of 600 kcal/h (www.apoteket.se "
+"average between brisk and relaxed walking pace 2014) when cycling at a speed "
+"of 18 km/h."
+
+#: .\templates\rjweb\part_cykelInfo.html:13
+msgid ""
+"Tidsangivelserna för cykel tar inte hänsyn till de topologiska förhållandena "
+"(höjdskillnader) på sträckan utan utgår från planmark."
+msgstr ""
+"Journey times by cycle given assume flat terrain and do not take "
+"topographical conditions (differences in elevation) for the segment into "
+"account."
+
+#: .\templates\rjweb\part_cykelInfo.html:20
+msgid ""
+"Kostnaden för att cykla är beräknad utifrån ett inköpspris på 7000 kr och "
+"att cykeln används i 10 år, 220 dagar om året. Skåningen cyklar i genomsnitt "
+"3 km enkel väg, vilket ger en genomsnittlig tur och returresa på 6 km "
+"(Resvanor Syd 2013). Underhållet för cykeln är satt till 500 kronor per år "
+"vid cykling 220 dagar om året. Sammanlagt ger detta en kostnad för cykling "
+"på (700+500)/(6*220)= 0,90 kr/mil."
+msgstr ""
+"The cost of cycling is based on a bicycle purchase price of SEK 7,000 and "
+"use of the bicycle for 10 years, 220 days a year. Skåne residents cycle an "
+"average of 3 km one way, which yields an average return journey of 6 km "
+"(travel habits report ”Resvanor Syd 2013”). The cost of cycle maintenance is "
+"set to SEK 500 a year for a cycle that is used 220 days a year. Overall, "
+"this yields a cost for cycling of (700+500)/(6*220)= SEK 0.090/km."
+
+#: .\templates\rjweb\part_cykelInfo.html:29
+msgid ""
+"Resejämförarens anvisning av sträcka är baserade på närmsta vägen från punkt "
+"A till punkt B för gång och cykel men snabbaste vägen för bilen. För gång- "
+"och cykelvägen innebär detta att den trafiksäkraste vägen inte alltid anges."
+msgstr ""
+"Journey Comparison’s recommended segment is based on the shortest way from "
+"point A to point B for journeys on foot or bicycle but the fastest way for "
+"journeys by car. This means that the recommended route is not always the "
+"best in terms of traffic safety for walkers and cyclists."
+
+#: .\templates\rjweb\part_gangInfo.html:4
+msgid ""
+"Hastigheten är beräknad till 5 kilometer i timmen (Fotgängarnas förening dec "
+"2014) och kaloriförbrukningen till 345 kcal/h (Apotekets råd om motion och "
+"friskvård, snitt mellan rask och lugn promenad 2014)."
+msgstr ""
+"The speed is calculated at 5 km/h (Fotgängarnas förening dec 2014) and "
+"calorie expenditure at 350 kcal/h (www.apoteket.se average between brisk and "
+"relaxed walking pace 2014)."
+
+#~ msgid "Konsumentverkets bilkalkyl"
+#~ msgstr "Consumer Agency’s calculation for cars"
