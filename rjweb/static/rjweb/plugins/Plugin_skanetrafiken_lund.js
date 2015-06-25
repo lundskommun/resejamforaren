@@ -59,10 +59,10 @@ app.plugin.Plugin_skanetrafiken_lund = app.Plugin.extend({
 			
 			var arrRtStart = this.wgsToRt(startLatLng.lng, startLatLng.lat),
 				arrRtEnd = this.wgsToRt(endLatLng.lng, endLatLng.lat);
-			var url = "http://kartor.lund.se/Skanetrafiken/?fromX="+parseInt(arrRtStart[0])+"&fromY="+parseInt(arrRtStart[1])+"&toX="+parseInt(arrRtEnd[0])+"&toY="+parseInt(arrRtEnd[1]);
+			var url = "/rjetis/search?fromX="+parseInt(arrRtStart[0])+"&fromY="+parseInt(arrRtStart[1])+"&toX="+parseInt(arrRtEnd[0])+"&toY="+parseInt(arrRtEnd[1]);
 			
 			$.ajax({
-				url: app.ws.proxy ? app.ws.proxy + encodeURIComponent(url) : url,
+				url: url,
 				type: "GET",
 				dataType: "text",
 				error: function(a, text, c) {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Result>
+    <Tid>{{ duration }}</Tid>
+    <Langd>{{ distance }}</Langd>
+    <Pris>{{ price_per_trip }}</Pris>
+    <PrisManad>{{ price_per_month }}</PrisManad>
+    <CO2>{{ co2 }}</CO2>
+    <JourneyPath>
+        {{ journey_path_xml|safe }}
+    </JourneyPath>
+</Result>
