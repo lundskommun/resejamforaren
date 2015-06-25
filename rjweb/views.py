@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, redirect
 from resejamforaren.settings import STATIC_URL
-from resejamforaren.config import MAPQUEST_KEY, RESROBOT_KEY, STREETSMART_URL, PRICE_PETROL, PRICE_DRIVING, PRICE_UPDATED, GOOGLE_ANALYTICS_KEY
+from resejamforaren.config import MAPQUEST_KEY, RESROBOT_KEY, STREETSMART_URL, PRICE_PETROL, PRICE_DRIVING, PRICE_UPDATED, GOOGLE_ANALYTICS_KEY, \
+    MAP_CENTER_POINT
 from django.utils import translation
 
 
@@ -27,6 +28,7 @@ def config(req):
         'GoogleAnalyticsKey': GOOGLE_ANALYTICS_KEY,
         'StreetSmartUrl': STREETSMART_URL,
         'PriceDriving': PRICE_DRIVING,
+        'MapCenterPoint': MAP_CENTER_POINT,
     }
     return render_to_response('rjweb/config.js', context)
 

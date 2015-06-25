@@ -30,10 +30,7 @@ app.Map = L.Class.extend({
                 maxZoom: 18,
                 layers: [],
                 attributionControl: false,
-                center: [
-                    55.7091,
-                    13.20102
-                ]
+                center: config.MapCenterPoint
         };
         var osmLayer = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
                 attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',

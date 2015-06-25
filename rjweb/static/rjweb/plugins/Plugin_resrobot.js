@@ -38,7 +38,7 @@ app.plugin.Plugin_resrobot = app.Plugin.extend({
 			 */
 			walkStraightLine: true,
 			plugins: {
-				walk: "Plugin_walk"
+				walk: "Plugin_mqWalk"
 			}
 		},
 		
@@ -177,7 +177,8 @@ app.plugin.Plugin_resrobot = app.Plugin.extend({
 						var pubArr = lineDict["public"];
 						var firstItem = pubArr[0].length ? pubArr[0][0] : pubArr[0],
 							lastItem = pubArr[pubArr.length-1].length ? pubArr[pubArr.length-1][pubArr[pubArr.length-1].length-1] : pubArr[pubArr.length-1];
-						$.when(
+						/*
+                        $.when(
 								self.getWalk(startLatLng, firstItem),
 								self.getWalk(lastItem, endLatLng))
 									.fail(onError).done(function(walk1, walk2) {
@@ -193,6 +194,9 @@ app.plugin.Plugin_resrobot = app.Plugin.extend({
 										onSuccess(lineDict, tableData, self);
 										onComplete();
 						});
+						*/
+                        onSuccess(lineDict, tableData, self);
+                        onComplete();
 					});
 			}).fail(onError);
 			

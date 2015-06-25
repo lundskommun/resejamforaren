@@ -273,7 +273,7 @@ app.SearchTrip = L.Class.extend({
 					var latLngArr, len = 0;
 					for (var theType in lineDict) {
 						latLngArr = lineDict[theType];
-						if (latLngArr[0].length) {
+						if (latLngArr.length && latLngArr[0].length) {
 							$.each(latLngArr, function(i, _latLngArr) {
 								len += utils.getLength(_latLngArr);
 							});
@@ -282,7 +282,7 @@ app.SearchTrip = L.Class.extend({
 							len += utils.getLength(latLngArr);						
 						}
 					}
-					tableData.distance = "<i>Ca</i> " + utils.round(len/1000) + "km<br>(linjens längd)";
+					tableData.distance = "≈ " + utils.round(len/1000) + " km";
 				}
 				
 				self.displayResult({

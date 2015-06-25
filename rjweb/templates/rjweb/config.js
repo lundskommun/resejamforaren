@@ -19,5 +19,6 @@ var config = {
     ResRobotKey: '{{ ResRobotKey }}',
     GoogleAnalyticsKey: '{{ GoogleAnalyticsKey }}',
     AddressSearchUrl: '{{ StreetSmartUrl }}',
-    PriceDriving: {{ PriceDriving }}
+    PriceDriving: {{ PriceDriving }},
+    MapCenterPoint: {{ MapCenterPoint }}
 }
