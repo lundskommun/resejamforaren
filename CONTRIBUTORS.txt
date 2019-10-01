@@ -4,4 +4,6 @@ The following organisations and individuals have contributed to Resejämföraren
  - Ylva S Åqvist (City of Lund)
  - Johan Lahti (Lahtitude)
  - David Pettersson (Viendi IT-konsult)
+ - Jonas Andreasson (City of Lund)
+ - Charlotta Lenninger (City of Lund)
 
